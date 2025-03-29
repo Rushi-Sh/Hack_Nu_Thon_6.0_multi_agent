@@ -4,8 +4,9 @@ import json
 # Figma API Token (Keep it secure)
 FIGMA_API_TOKEN = "figd_6wWgkoTn-oST522A4G6IyOcweCqPCeKyS8a6CQoj"
 
+
 # File Key from Figma URL
-FILE_KEY = "qyiTc7JlJVT2v3uW5Rwq8x"
+FILE_KEY = "IDuTOIkVefgkJ6lOvFvGpr"
 
 # Figma API Endpoint
 FIGMA_API_URL = f"https://api.figma.com/v1/files/{FILE_KEY}"
