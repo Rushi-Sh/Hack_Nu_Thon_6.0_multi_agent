@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from utils import fetch_figma_json, fetch_pdf_text
 from agents.test_generation.test_llm import generate_test_cases
-from agents.test_generation.test_manual import generate_test_cases
+from agents.test_generation.test_manual import generate_manual_test_cases
 from agents.test_scenerio_script.sel_script import generate_selenium_js,scrape_website
 from agents.figma_image.image_test import extract_ui_elements_from_image,generate_image_test_cases
 
@@ -59,7 +59,7 @@ def manual_input():
 
     # Generate test cases
     try:
-        test_cases = generate_test_cases(ui_desc, requirement_desc)
+        test_cases = generate_manual_test_cases(ui_desc, requirement_desc)
         return jsonify({"message": "Test cases generated successfully", "test_cases": test_cases})
     except Exception as e:
         return jsonify({"error": f"Test generation failed: {str(e)}"}), 500

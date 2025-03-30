@@ -12,7 +12,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 # Initialize Groq API
 groq_llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
 
-def generate_test_cases(ui_desc, requirements_text):
+def generate_manual_test_cases(ui_desc, requirements_text):
     """Generates structured test cases based on UI description and requirements text."""
 
     if not ui_desc and not requirements_text:
