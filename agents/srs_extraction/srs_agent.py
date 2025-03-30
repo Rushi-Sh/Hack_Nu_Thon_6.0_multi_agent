@@ -40,9 +40,50 @@ def summarize_text(pdf_text):
         return "No text found."
     
     prompt = PromptTemplate(
-        input_variables=["chunk"],
-        template="Summarize key test requirements from this section:\n\n{chunk}\n\nBullet points."
-    )
+    input_variables=["figma_data", "requirements_text"],
+    template="""
+    Generate a comprehensive and **detailed set of test cases** in **strict JSON format** based on the following inputs:
+
+    **Figma Design Data:**
+    {figma_data}
+
+    **Requirements Document:**
+    {requirements_text}
+
+    **Test cases should cover:**
+    - **Functional Testing** (cover all core functionalities)
+    - **UI/UX Testing** (layout, responsiveness, and consistency)
+    - **Accessibility Checks** (screen readers, keyboard navigation, color contrast)
+    - **Performance Testing** (loading times, heavy data handling)
+    - **Edge Cases & Error Handling** (unexpected inputs, extreme values)
+    - **Security Testing** (login, authentication, data protection)
+    - **Cross-Browser & Cross-Device Testing** (Chrome, Safari, Firefox, mobile, tablet)
+
+    **JSON Format for Output:**
+    ```json
+    {
+      "test_cases": [
+        {
+          "summary": "Short description of the test case",
+          "priority": "P1/P2/P3",
+          "tags": ["Relevant", "Tags"],
+          "test_steps": [
+            {
+              "step": "Describe the test step",
+              "expected_result": "Describe the expected outcome"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    **Return 40 diverse test cases** following this format.  
+    **Ensure the JSON is properly formatted without extra explanations or markdown.**
+    """
+)
+
+
     
     summaries = [(prompt | groq_llm).invoke({"chunk": chunk}).content.strip() for chunk in split_text(pdf_text)]
     return "\n".join(summaries)
