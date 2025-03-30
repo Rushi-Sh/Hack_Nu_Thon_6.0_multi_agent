@@ -3,8 +3,11 @@ import re
 import logging
 import orjson
 import time
+from dotenv import load_dotenv
+import os
 
-FIGMA_API_TOKEN = "figd_6wWgkoTn-oST522A4G6IyOcweCqPCeKyS8a6CQoj"
+load_dotenv()
+FIGMA_API_TOKEN = os.getenv("FIGMA_API_TOKEN")
 
 # Extract file key from Figma URL
 def extract_file_key(figma_url):

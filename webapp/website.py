@@ -1,85 +1,105 @@
 import streamlit as st
 import requests
 import json
-import os
+from menu import menu  # Import menu module
 
-# Flask API URLs
+# API URLs
 API_URL_PROCESS = "http://127.0.0.1:5000/process"
-API_URL_GENERATE_SCRIPT = "http://127.0.0.1:5000/generate_test_script"
+API_URL_GENERATE_FROM_FIGMA = "http://127.0.0.1:5000/generate_from_figma"
 
-# JSON filename to save test cases
-TEST_CASES_FILE = "generated_test_cases.json"
+# Display menu and get selected option
+option = menu()
 
-# Streamlit UI
-st.title("Automated Test Plan Generator")
+if option == "Home":
+    st.title("Welcome to the Test Case Generator")
+    st.write("""
+    This application helps you generate automated test cases from Figma designs and requirement documents.
+    
+    **Features:**
+    - Generate test cases from a Figma URL
+    - Generate test cases from uploaded Figma images
+    - Save test cases in JSON format
+    - Generate Selenium test scripts from test cases
+    
+    Select an option from the sidebar to get started!
+    """)
 
-# Step 1: Input Figma URL or Upload PDF
-figma_url = st.text_input("Enter Figma File URL", placeholder="https://www.figma.com/file/xyz123/design")
-uploaded_file = st.file_uploader("Upload PDF with Testing Requirements", type=["pdf"])
+elif option == "Generate Test Cases":
+    st.title("Test Case Generator")
 
-# Step 2: Generate and Save Test Plan as JSON
-if st.button("Generate Test Plan"):
-    if figma_url or uploaded_file:
-        payload = {"figma_url": figma_url} if figma_url else {}
-        files = {"requirement_pdf": uploaded_file} if uploaded_file else {}
+    # Selection between Figma URL or Image Upload
+    input_method = st.radio("Select Input Method:", ["Figma URL", "Figma Image Upload"])
 
-        try:
-            response = requests.post(API_URL_PROCESS, data=payload, files=files) if files else requests.post(API_URL_PROCESS, json=payload)
-
-            if response.status_code == 200:
+    if input_method == "Figma URL":
+        figma_url = st.text_input("Enter Figma File URL", placeholder="https://www.figma.com/file/xyz123/design")
+        requirements_text = st.text_area("Enter Requirements Text")
+        
+        if st.button("Generate Test Cases"):
+            if figma_url or requirements_text:
+                payload = {"figma_url": figma_url or None, "requirements_text": requirements_text or None}
+                
                 try:
-                    test_plan = response.json()
+                    response = requests.post(API_URL_PROCESS, json=payload)
+                    if response.status_code == 200:
+                        st.success("Test Cases Generated Successfully!")
+                        st.json(response.json())
 
-                    # Save test cases as a JSON file
-                    with open(TEST_CASES_FILE, "w") as f:
-                        json.dump(test_plan, f, indent=4)
-
-                    st.success("Test Plan Generated and Saved as JSON File!")
-                    st.json(test_plan)
-                    st.info(f"Saved file: `{TEST_CASES_FILE}`")
-
-                except requests.exceptions.JSONDecodeError:
-                    st.error("Error: Invalid response from API. The server returned an invalid JSON response.")
+                        with open("test_cases.json", "w") as file:
+                            json.dump(response.json(), file)
+                        st.success("Test Cases Saved to 'test_cases.json'")
+                    else:
+                        st.error(f"Error: {response.json().get('error', 'Unknown error')}")
+                except requests.exceptions.RequestException as e:
+                    st.error(f"Error: Unable to connect to API. {str(e)}")
             else:
-                st.error(f"Error: {response.json().get('error', 'Unknown error')}")
+                st.warning("Please provide either a Figma URL or requirements text")
 
-        except requests.exceptions.RequestException as e:
-            st.error(f"Error: Unable to connect to API. {str(e)}")
+    elif input_method == "Figma Image Upload":
+        figma_image = st.file_uploader("Upload Figma Image", type=["png", "jpg", "jpeg"])
+        requirements_url = st.text_input("Enter Requirements URL", placeholder="https://example.com/requirements.pdf")
+        
+        if st.button("Generate Test Cases"):
+            if figma_image and requirements_url:
+                try:
+                    files = {"figma_image": figma_image}
+                    data = {"requirements_url": requirements_url}
+                    
+                    response = requests.post(API_URL_GENERATE_FROM_FIGMA, files=files, data=data)
+                    if response.status_code == 200:
+                        st.success("Test Cases Generated Successfully!")
+                        st.json(response.json())
 
-    else:
-        st.warning("Please provide either a Figma URL or upload a PDF with testing requirements.")
-
-# Step 3: Upload Test Cases JSON and Provide Website URL
-st.subheader("Step 3: Generate Selenium Test Script")
-
-uploaded_json_file = st.file_uploader("Upload Generated Test Cases JSON", type=["json"])
-website_url = st.text_input("Enter Website URL for Test Script", placeholder="https://example.com")
-
-if st.button("Generate Test Script"):
-    if uploaded_json_file and website_url:
-        try:
-            # Load test cases from uploaded JSON file
-            test_cases = json.load(uploaded_json_file)
-
-            # Prepare request payload
-            test_script_payload = {
-                "website_url": website_url,
-                "test_cases": test_cases
-            }
-
-            # Request to generate test script
-            script_response = requests.post(API_URL_GENERATE_SCRIPT, json=test_script_payload)
-
-            if script_response.status_code == 200:
-                st.success("Test Script Generated Successfully!")
-                st.json(script_response.json())
+                        with open("test_cases.json", "w") as file:
+                            json.dump(response.json(), file)
+                        st.success("Test Cases Saved to 'test_cases.json'")
+                    else:
+                        st.error(f"Error: {response.json().get('error', 'Unknown error')}")
+                except requests.exceptions.RequestException as e:
+                    st.error(f"Error: Unable to connect to API. {str(e)}")
             else:
-                st.error(f"Error: {script_response.json().get('error', 'Unknown error')}")
+                st.warning("Please upload a Figma image and provide a requirements URL")
 
-        except json.JSONDecodeError:
-            st.error("Error: Uploaded file is not a valid JSON.")
-        except requests.exceptions.RequestException as e:
-            st.error(f"Error: Unable to connect to API. {str(e)}")
+    st.header("Generate Test Script")
 
-    else:
-        st.warning("Please upload a valid test cases JSON file and enter a Website URL.")
+    uploaded_test_cases = st.file_uploader("Upload Test Cases JSON File", type=["json"])
+    website_url = st.text_input("Enter Website URL for Test Script", placeholder="https://example.com")
+
+    if st.button("Generate Test Script"):
+        if uploaded_test_cases and website_url:
+            test_cases_data = json.load(uploaded_test_cases)
+            test_script_payload = {"website_url": website_url, "test_cases": test_cases_data}
+
+            try:
+                response = requests.post(API_URL_PROCESS, json=test_script_payload)
+                if response.status_code == 200:
+                    st.success("Test Script Generated Successfully!")
+                    st.json(response.json())
+                    with open("selenium_test.js", "w") as file:
+                        file.write(response.json()["script"])
+                    st.success("Test Script Saved to 'selenium_test.js'")
+                else:
+                    st.error(f"Error: {response.json().get('error', 'Unknown error')}")
+            except requests.exceptions.RequestException as e:
+                st.error(f"Error: Unable to connect to API. {str(e)}")
+        else:
+            st.error("Please provide both test cases JSON file and Website URL.")
