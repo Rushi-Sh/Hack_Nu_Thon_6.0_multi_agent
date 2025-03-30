@@ -1,6 +1,7 @@
 import os
 import json
 import google.generativeai as genai
+import re
 from dotenv import load_dotenv
 from PIL import Image
 import io
@@ -14,64 +15,114 @@ genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel("gemini-1.5-flash")
 
 
-def extract_ui_elements_from_image(image_path):
-    """Extract UI elements from an image using Gemini API."""
-    with open(image_path, "rb") as image_file:
-        image_data = image_file.read()
-    
-    image = Image.open(io.BytesIO(image_data))
-    prompt = "Extract UI elements from this image."
+def extract_json_from_text(response_text):
+    """Extracts the first valid JSON structure from a text response using regex."""
+    json_pattern = r"\{[\s\S]*\}"  # Match JSON structure
+    match = re.search(json_pattern, response_text)
+
+    if match:
+        try:
+            return json.loads(match.group(0))  # Convert extracted text to JSON
+        except json.JSONDecodeError:
+            print("❌ Extracted JSON is not valid.")
+            return None
+    else:
+        print("❌ No JSON found in response.")
+        return None
+
+
+def extract_ui_elements_from_image(image_bytes):
+    """Extract key UI elements from a Figma-generated image using Gemini API."""
+    image = Image.open(io.BytesIO(image_bytes))  # Convert bytes to an image
+
+    # Improved prompt for structured extraction
+    prompt = """
+    Analyze this UI design image (from Figma) and extract key UI components in **structured JSON format**.
+
+    **Categories to extract:**
+    - Navigation elements (headers, sidebars, menus)
+    - Interactive elements (buttons, input fields, toggles, dropdowns)
+    - Forms (login, signup, contact forms)
+    - Key text elements (headings, labels)
+    - Visual elements (cards, banners, sections)
+    - Call-to-action buttons (e.g., "Sign Up", "Submit", "Buy Now")
+
+    **Return ONLY valid JSON inside a code block** like this:
+    ```json
+    {
+        "navigation": ["Header", "Sidebar"],
+        "buttons": ["Login Button", "Signup Button"],
+        "input_fields": ["Email", "Password"],
+        "forms": ["Login Form"],
+        "headings": ["Main Heading"],
+        "visual_elements": ["Hero Banner"],
+        "cta": ["Get Started"]
+    }
+    ```
+
+    Do not include any explanations or extra text.
+    """
 
     response = gemini_model.generate_content([prompt, image])
 
-    return response.text if response else None
+    if response:
+        print("\n🔹 RAW RESPONSE FROM GEMINI:\n", response.text)  # Debugging log
+        return extract_json_from_text(response.text)
+    else:
+        print("❌ No response from Gemini.")
+        return None
 
 
-def generate_test_cases(ui_elements, requirements):
-    """Generate structured test cases based on extracted UI elements and requirements."""
+def generate_image_test_cases(ui_elements, requirements):
+    """Generate at least 30 structured test cases based on extracted UI elements and requirements."""
     prompt = f"""
-    Generate structured test cases based on the following inputs:
+    Based on the extracted UI elements and requirements, generate at least **30 structured test cases**.
 
-    **Image UI Components Data:**  
-    {ui_elements}
+    **Extracted UI Components:**  
+    {json.dumps(ui_elements, indent=2)}
 
-    **Requirements Document:**  
+    **Requirements:**  
     {requirements}
 
     **Focus Areas:**  
-    - Functional testing  
-    - Layout and UI validation  
-    - Accessibility checks  
-    - Edge cases  
-    - Error handling  
+    - Functional testing (buttons, input validation, form submission)  
+    - Layout and UI validation (alignment, responsiveness)  
+    - Accessibility checks (screen reader compatibility, color contrast)  
+    - Edge cases (long text input, special characters)  
+    - Error handling (invalid login, incorrect inputs)  
 
-    **Return the response in valid JSON format only, structured as follows:**  
-
+    **Return strictly JSON inside a code block** like this:
+    ```
+    ```json
     {{
-        "summary": "Brief description of the test scenario",
-        "priority": "P1 or P2 or P3",
-        "tags": ["Tag1", "Tag2"],
+        "summary": "Test cases for UI validation",
+        "priority": "P1",
+        "tags": ["UI", "Functional", "Accessibility"],
         "test_cases": [
-            {{
-                "step": "Action to be performed",
-                "expected_result": "Expected outcome"
-            }},
-            {{
-                "step": "Next action",
-                "expected_result": "Next expected outcome"
-            }}
+            {{"step": "Click login button", "expected_result": "Redirects to login page"}},
+            {{"step": "Enter valid credentials", "expected_result": "User logs in successfully"}},
+            {{"step": "Enter incorrect password", "expected_result": "Error message appears"}},
+            {{"step": "Submit empty login form", "expected_result": "Validation error is displayed"}},
+            {{"step": "Resize browser window", "expected_result": "UI elements adjust correctly"}},
+            {{"step": "Try submitting form without email", "expected_result": "Email field validation error"}},
+            {{"step": "Navigate via keyboard", "expected_result": "Keyboard navigation works smoothly"}},
+            {{"step": "Try login with special characters in password", "expected_result": "Password validation works"}},
+            {{"step": "Check contrast ratio of text", "expected_result": "Meets accessibility standards"}}
         ]
     }}
+    ```
+    ```
 
-    Ensure the response is strictly valid JSON with no extra text or explanations.
+    Ensure the JSON contains at least **30 test cases** across **various categories**.
     """
 
     response = gemini_model.generate_content(prompt)
 
-    try:
-        return json.loads(response.text) if response else None
-    except json.JSONDecodeError:
-        print("❌ Failed to parse response as JSON.")
+    if response:
+        print("\n🔹 RAW TEST CASE RESPONSE FROM GEMINI:\n", response.text)  # Debugging log
+        return extract_json_from_text(response.text)
+    else:
+        print("❌ No response for test cases.")
         return None
 
 
@@ -83,17 +134,16 @@ if __name__ == "__main__":
     # Extract UI elements
     ui_elements = extract_ui_elements_from_image(image_path)
 
-    print(ui_elements)  # Print the extracted inf
-
     if ui_elements:
+        print("\n✅ Extracted UI Elements:\n", json.dumps(ui_elements, indent=2))  # Debugging output
+        
         # Generate test cases
-        test_cases = generate_test_cases(ui_elements, requirements)
+        test_cases = generate_image_test_cases(ui_elements, requirements)
 
         if test_cases:
-            # Save to a JSON file
             with open("test_cases.json", "w") as file:
                 json.dump(test_cases, file, indent=4)
-            print("✅ Test cases generated successfully! Saved as 'test_cases.json'")
+            print("✅ 30+ test cases generated successfully! Saved as 'test_cases.json'")
         else:
             print("❌ Failed to generate test cases.")
     else:

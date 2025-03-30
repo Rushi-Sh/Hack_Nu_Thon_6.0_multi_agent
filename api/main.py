@@ -1,12 +1,15 @@
 from flask import Flask, request, jsonify
 import sys, os
-
+from PIL import Image
+import io
+import requests
 # Ensure the script can import utility functions
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from utils import fetch_figma_json, fetch_pdf_text
 from agents.test_generation.test_llm import generate_test_cases
 from agents.test_scenerio_script.sel_script import generate_selenium_js,scrape_website
+from agents.figma_image.image_test import extract_ui_elements_from_image,generate_image_test_cases
 
 app = Flask(__name__)
 
@@ -62,25 +65,34 @@ def generate_test_script():
     except Exception as e:
         return jsonify({"error": f"Test script generation failed: {str(e)}"}), 500
 
+
 @app.route('/generate_from_figma', methods=['POST'])
 def generate_from_figma():
-    """Processes Figma image and requirements URL to generate test cases."""
+    """Processes Figma image and requirements PDF to generate test cases."""
     if 'figma_image' not in request.files:
         return jsonify({"error": "Figma image is required."}), 400
     
-    figma_image = request.files['figma_image']
-    requirements_url = request.form.get("requirements_url", "")
-    
-    if not requirements_url:
-        return jsonify({"error": "Requirements URL is required."}), 400
+    if 'requirement_pdf' not in request.files:
+        return jsonify({"error": "Requirements PDF is required."}), 400
     
     try:
-        figma_data = process_figma_image(figma_image)
-        requirements_text = fetch_pdf_text(requests.get(requirements_url).content)
-        test_cases = generate_test_cases(figma_data, requirements_text)
+        # Read Figma image
+        figma_image = request.files['figma_image']
+        image_bytes = figma_image.read()
+        processed_image = Image.open(io.BytesIO(image_bytes))
+        
+        # Read and extract text from the PDF
+        requirement_pdf = request.files['requirement_pdf'].read()
+        requirements_text = fetch_pdf_text(requirement_pdf)
+        
+        # Generate test cases
+        test_cases = generate_test_cases(processed_image, requirements_text)
+        
         return jsonify({"message": "Test cases generated successfully", "test_cases": test_cases})
+    
     except Exception as e:
         return jsonify({"error": f"Test case generation failed: {str(e)}"}), 500
+
 
 
 @app.route('/suggest_updates', methods=['POST'])

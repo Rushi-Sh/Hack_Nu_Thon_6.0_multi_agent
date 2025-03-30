@@ -56,15 +56,15 @@ elif option == "Generate Test Cases":
 
     elif input_method == "Figma Image Upload":
         figma_image = st.file_uploader("Upload Figma Image", type=["png", "jpg", "jpeg"])
-        requirements_url = st.text_input("Enter Requirements URL", placeholder="https://example.com/requirements.pdf")
+        requirements_pdf = st.file_uploader("Upload Requirements PDF", type=["pdf"])
         
         if st.button("Generate Test Cases"):
-            if figma_image and requirements_url:
+            if figma_image and requirements_pdf:
                 try:
-                    files = {"figma_image": figma_image}
-                    data = {"requirements_url": requirements_url}
+                    files = {"figma_image": (figma_image.name, figma_image, figma_image.type),
+                             "requirement_pdf": (requirements_pdf.name, requirements_pdf, "application/pdf")}
                     
-                    response = requests.post(API_URL_GENERATE_FROM_FIGMA, files=files, data=data)
+                    response = requests.post(API_URL_GENERATE_FROM_FIGMA, files=files)
                     if response.status_code == 200:
                         st.success("Test Cases Generated Successfully!")
                         st.json(response.json())
@@ -77,7 +77,7 @@ elif option == "Generate Test Cases":
                 except requests.exceptions.RequestException as e:
                     st.error(f"Error: Unable to connect to API. {str(e)}")
             else:
-                st.warning("Please upload a Figma image and provide a requirements URL")
+                st.warning("Please upload both a Figma image and a requirements PDF")
 
     st.header("Generate Test Script")
 
