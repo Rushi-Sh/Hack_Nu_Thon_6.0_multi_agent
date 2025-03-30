@@ -1,7 +1,6 @@
 import os
 import re
 import google.generativeai as genai
-from langchain_google_genai import GoogleGenerativeAI
 from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 
@@ -10,8 +9,9 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Initialize LangChain LLM with Gemini
-llm = GoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=GEMINI_API_KEY)
+# Initialize Gemini model
+model = genai.GenerativeModel("gemini-1.5-pro")
+
 
 # Function to scrape the website
 def scrape_website(url):
@@ -35,12 +35,14 @@ def scrape_website(url):
             "links": links
         }
 
+
 # Function to extract JavaScript code using regex
 def extract_js_code(response_text):
     match = re.search(r"```javascript(.*?)```", response_text, re.DOTALL)
     return match.group(1).strip() if match else None
 
-# Function to generate Selenium JS script using Gemini API
+
+# Function to generate Selenium JS script using Gemini API (Without LangChain)
 def generate_selenium_js(test_cases, website_data):
     prompt = f"""
     Generate a Selenium JavaScript script to automate testing for the following test cases:
@@ -59,14 +61,20 @@ def generate_selenium_js(test_cases, website_data):
     Return only the code inside a JavaScript code block (```javascript ... ```).
     """
 
-    response = llm.invoke(prompt)
-    selenium_script = extract_js_code(response)
+    # Direct Gemini API Call
+    response = model.generate_content(prompt)
+    
+    if response and response.text:
+        selenium_script = extract_js_code(response.text)
+    else:
+        selenium_script = None
 
     if not selenium_script:
         print("⚠️ No JavaScript code found in the response.")
         return None
 
     return selenium_script
+
 
 # Main Execution
 if __name__ == "__main__":
