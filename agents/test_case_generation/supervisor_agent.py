@@ -24,10 +24,10 @@ class PipelineState(TypedDict):
 def full_pipeline(figma_json=None, requirements_content=None):
 
     # 1. Validate Inputs
-    if not isinstance(figma_json, dict) or not figma_json:
-        print("❌ ERROR: Invalid or missing figma_json input")
+    if not isinstance(figma_json, dict) or not figma_json or not all(key in figma_json for key in ['Layout_agent', 'Usability_agent']):
+        print("❌ ERROR: Invalid or missing figma_json input or missing required keys")
         return {
-            "error": "Missing or invalid figma_json input",
+            "error": "Missing or invalid figma_json input. Must contain Layout_agent and Usability_agent keys",
             "input_received": figma_json if figma_json else "No input received"
         }
     
