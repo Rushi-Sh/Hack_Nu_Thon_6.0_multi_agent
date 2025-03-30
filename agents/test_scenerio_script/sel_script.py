@@ -1,6 +1,7 @@
 import os
+import re
 import google.generativeai as genai
-from langchain.llms import GoogleGenerativeAI
+from langchain_google_genai import GoogleGenerativeAI
 from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 
@@ -10,7 +11,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Initialize LangChain LLM with Gemini
-llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=GEMINI_API_KEY)
+llm = GoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=GEMINI_API_KEY)
 
 # Function to scrape the website
 def scrape_website(url):
@@ -34,6 +35,11 @@ def scrape_website(url):
             "links": links
         }
 
+# Function to extract JavaScript code using regex
+def extract_js_code(response_text):
+    match = re.search(r"```javascript(.*?)```", response_text, re.DOTALL)
+    return match.group(1).strip() if match else None
+
 # Function to generate Selenium JS script using Gemini API
 def generate_selenium_js(test_cases, website_data):
     prompt = f"""
@@ -50,15 +56,21 @@ def generate_selenium_js(test_cases, website_data):
     - Interact with buttons, input fields, and forms
     - Verify expected test outcomes
 
-    Return the code in proper JavaScript format.
+    Return only the code inside a JavaScript code block (```javascript ... ```).
     """
 
-    response = llm.predict(prompt)
-    return response
+    response = llm.invoke(prompt)
+    selenium_script = extract_js_code(response)
+
+    if not selenium_script:
+        print("⚠️ No JavaScript code found in the response.")
+        return None
+
+    return selenium_script
 
 # Main Execution
 if __name__ == "__main__":
-    website_url = "https://example.com"  # Replace with target website
+    website_url = "https://urbansnap.vercel.app/"  # Replace with target website
     test_cases = [
         {"test_case": "Verify login button is clickable"},
         {"test_case": "Fill the login form with valid credentials and submit"},
@@ -71,8 +83,11 @@ if __name__ == "__main__":
     # Generate Selenium JS script
     selenium_script = generate_selenium_js(test_cases, website_data)
 
-    # Save the script to a file
-    with open("selenium_test.js", "w") as file:
-        file.write(selenium_script)
+    if selenium_script:
+        # Save the script to a file
+        with open("selenium_test.js", "w") as file:
+            file.write(selenium_script)
 
-    print("\n✅ Selenium Test Script Generated Successfully! Saved as 'selenium_test.js'")
+        print("\n✅ Selenium Test Script Generated Successfully! Saved as 'selenium_test.js'")
+    else:
+        print("\n❌ Failed to generate a valid Selenium script.")

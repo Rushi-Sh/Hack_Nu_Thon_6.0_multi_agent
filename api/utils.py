@@ -6,7 +6,7 @@ import fitz  # PyMuPDF for PDF text extraction
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from agents.figma_extraction.figma_agent import fetch_figma_uiux_json
 from agents.srs_extraction.srs_agent import summarize_text
-from agents.website_extraction.website_agent import extract_important_elements
+from agents.website_extraction.website_agent import extract_elements_for_selenium
 
 def fetch_figma_json(figma_url):
     """Fetch Figma JSON data."""
@@ -45,7 +45,7 @@ def fetch_pdf_text(pdf_bytes):
 def fetch_website_data(website_url):
     """Extracts HTML, CSS, and JS from a website."""
     try:
-        content = extract_important_elements(website_url)
+        content = extract_elements_for_selenium(website_url)
         return content
 
     except Exception as e:

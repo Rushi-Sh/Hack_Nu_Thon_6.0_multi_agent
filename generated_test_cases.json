@@ -1,5 +1,98 @@
 {
-    "uiux_test_cases": [],
-    "frontend_test_cases": [],
-    "backend_test_cases": []
+    "message": "Test cases generated successfully",
+    "test_cases": {
+        "message": "Test cases generated successfully",
+        "test_cases": [
+            {
+                "priority": "P1",
+                "summary": "Verify Landing Page Layout",
+                "tags": [
+                    "Layout",
+                    "Functional"
+                ],
+                "test_cases": [
+                    {
+                        "expected_result": "The page layout should match the Figma design",
+                        "step": "Check the Landing Page layout matches the Figma design"
+                    },
+                    {
+                        "expected_result": "The logo should be displayed at the top-left corner",
+                        "step": "Verify the Logo 2 1 is displayed correctly"
+                    }
+                ]
+            },
+            {
+                "priority": "P2",
+                "summary": "Test Navigation Bar Functionality",
+                "tags": [
+                    "Usability",
+                    "Functional"
+                ],
+                "test_cases": [
+                    {
+                        "expected_result": "The Navigation menu should expand or collapse",
+                        "step": "Click on the Navigation button"
+                    },
+                    {
+                        "expected_result": "All Navigation buttons should be displayed and should not overlap",
+                        "step": "Verify the Navigation buttons are displayed correctly"
+                    }
+                ]
+            },
+            {
+                "priority": "P3",
+                "summary": "Accessibility Check for Usability Agent",
+                "tags": [
+                    "Accessibility",
+                    "Usability"
+                ],
+                "test_cases": [
+                    {
+                        "expected_result": "The button should be accessible via keyboard only",
+                        "step": "Check the button is accessible via keyboard only"
+                    },
+                    {
+                        "expected_result": "All Navigation buttons should have alternative text",
+                        "step": "Verify the Navigation buttons have alternative text"
+                    }
+                ]
+            },
+            {
+                "priority": "P2",
+                "summary": "Edge Case: Large Screen Size",
+                "tags": [
+                    "Layout",
+                    "Edge Cases"
+                ],
+                "test_cases": [
+                    {
+                        "expected_result": "The page layout should adapt to the large screen size",
+                        "step": "Resize the browser window to a large size"
+                    },
+                    {
+                        "expected_result": "All Navigation buttons should be displayed and should not overlap",
+                        "step": "Verify the Navigation buttons are still displayed correctly"
+                    }
+                ]
+            },
+            {
+                "priority": "P3",
+                "summary": "Error Handling: Missing Navigation Button",
+                "tags": [
+                    "Error Handling",
+                    "Usability"
+                ],
+                "test_cases": [
+                    {
+                        "expected_result": "A warning or error message should be displayed indicating the missing button",
+                        "step": "Remove a Navigation button"
+                    },
+                    {
+                        "expected_result": "The page layout should still be displayed correctly",
+                        "step": "Verify the page layout is still displayed correctly"
+                    }
+                ]
+            }
+        ]
+    }
 }
