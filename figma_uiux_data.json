@@ -1,125 +1,3785 @@
 {
   "Layout_agent": [
     {
-      "id": "15:9",
-      "name": "Landing Page",
-      "type": "FRAME",
+      "id": "1:260",
+      "name": "Components for the website:",
+      "type": "SECTION",
       "category": "Layout_agent",
       "size": {
-        "x": 0.0,
-        "y": 0.0,
-        "width": 1512.0,
-        "height": 982.0
+        "x": -960.5,
+        "y": 7497.419921875,
+        "width": 1142.840087890625,
+        "height": 5377.5009765625
       }
     },
     {
-      "id": "15:11",
-      "name": "Logo 2 1",
+      "id": "1:259",
+      "name": "Variants of Owlstown",
       "type": "FRAME",
       "category": "Layout_agent",
       "size": {
-        "x": 0.0,
-        "y": 0.0,
-        "width": 208.0,
-        "height": 203.0
+        "x": -896.5,
+        "y": 7561.419921875,
+        "width": 516.0,
+        "height": 620.0
       }
     },
     {
-      "id": "15:133",
-      "name": "Navifation Bar",
+      "id": "1:3",
+      "name": "variant=1,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -563.5,
+        "y": 7621.419921875,
+        "width": 64.0,
+        "height": 17.799999237060547
+      }
+    },
+    {
+      "id": "1:12",
+      "name": "variant=1,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 7621.419921875,
+        "width": 64.0,
+        "height": 17.799999237060547
+      }
+    },
+    {
+      "id": "1:15",
+      "name": "variant=2,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -723.5,
+        "y": 7691.419921875,
+        "width": 107.0,
+        "height": 40.0
+      }
+    },
+    {
+      "id": "1:24",
+      "name": "variant=3,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -730.0,
+        "y": 7761.419921875,
+        "width": 107.0,
+        "height": 40.0
+      }
+    },
+    {
+      "id": "1:28",
+      "name": "variant=4,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -563.5,
+        "y": 7831.419921875,
+        "width": 73.0,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:35",
+      "name": "variant=4,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 7831.419921875,
+        "width": 73.0,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:37",
+      "name": "variant=5,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -563.5,
+        "y": 7901.419921875,
+        "width": 67.94999694824219,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:41",
+      "name": "variant=5,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 7901.419921875,
+        "width": 73.0,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:43",
+      "name": "variant=6,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -563.5,
+        "y": 7971.419921875,
+        "width": 92.0,
+        "height": 26.0
+      }
+    },
+    {
+      "id": "1:48",
+      "name": "variant=6,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 7971.419921875,
+        "width": 92.0,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:50",
+      "name": "variant=7,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8041.419921875,
+        "width": 107.0,
+        "height": 32.0
+      }
+    },
+    {
+      "id": "1:54",
+      "name": "variant=8,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8111.419921875,
+        "width": 107.0,
+        "height": 32.0
+      }
+    },
+    {
+      "id": "1:265",
+      "name": "x-axis-legend",
       "type": "FRAME",
       "category": "Layout_agent",
       "size": {
-        "x": 681.0,
-        "y": 21.0,
-        "width": 831.0,
-        "height": 63.0
+        "x": -776.5,
+        "y": 7561.419921875,
+        "width": 396.0000305175781,
+        "height": 30.0
+      }
+    },
+    {
+      "id": "1:266",
+      "name": "y-axis-legend",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -896.5,
+        "y": 7591.419921875,
+        "width": 120.0,
+        "height": 590.0
+      }
+    },
+    {
+      "id": "1:278",
+      "name": "Themes List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -896.5,
+        "y": 8245.419921875,
+        "width": 1014.840087890625,
+        "height": 3769.500732421875
+      }
+    },
+    {
+      "id": "1:56",
+      "name": "variant=1,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8305.419921875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:57",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8305.419921875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:60",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 8306.419921875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:66",
+      "name": "variant=2,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8676.3701171875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:67",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 8676.3701171875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:68",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 8677.3701171875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:71",
+      "name": "variant=3,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9047.3203125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:72",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9047.3203125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:73",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 9048.3203125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:76",
+      "name": "variant=4,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9418.2705078125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:77",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9418.2705078125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:78",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 9419.2705078125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:81",
+      "name": "variant=5,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9789.220703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:82",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 9789.220703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:83",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 9790.220703125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:86",
+      "name": "variant=6,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10160.169921875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:87",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10160.169921875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:88",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 10161.169921875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:91",
+      "name": "variant=7,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10531.1201171875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:92",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10531.1201171875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:93",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 10532.1201171875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:96",
+      "name": "variant=8,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10902.0703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:97",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 10902.0703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:98",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 10903.0703125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:101",
+      "name": "variant=9,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 11273.0205078125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:102",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 11273.0205078125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:103",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 11274.0205078125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:106",
+      "name": "variant=10,:hover=false",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 11643.970703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:107",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 11643.970703125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "1:108",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -745.5,
+        "y": 11644.970703125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:167",
+      "name": "variant=1,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 8305.419921875,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:168",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 8305.419921875,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:169",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 8306.419921875,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:177",
+      "name": "variant=2,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 8676.3701171875,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:178",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 8676.3701171875,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:179",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 8677.3701171875,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:186",
+      "name": "variant=3,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9047.3203125,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:187",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9047.3203125,
+        "width": 312.4200134277344,
+        "height": 250.94000244140625
+      }
+    },
+    {
+      "id": "1:188",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 9048.3203125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:195",
+      "name": "variant=4,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9418.2705078125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:196",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9418.2705078125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:197",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 9419.2705078125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:204",
+      "name": "variant=5,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9789.220703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:205",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 9789.220703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:206",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 9790.220703125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:213",
+      "name": "variant=6,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10160.169921875,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:214",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10160.169921875,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:215",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 10161.169921875,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:222",
+      "name": "variant=7,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10531.1201171875,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:223",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10531.1201171875,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:224",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 10532.1201171875,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:231",
+      "name": "variant=8,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10902.0703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:232",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 10902.0703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:233",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 10903.0703125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:240",
+      "name": "variant=9,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 11273.0205078125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:241",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 11273.0205078125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:242",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 11274.0205078125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:249",
+      "name": "variant=10,:hover=true",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 11643.970703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:250",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -314.0799560546875,
+        "y": 11643.970703125,
+        "width": 312.4200134277344,
+        "height": 250.9499969482422
+      }
+    },
+    {
+      "id": "1:251",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -313.0799560546875,
+        "y": 11644.970703125,
+        "width": 310.4200134277344,
+        "height": 16.15999984741211
+      }
+    },
+    {
+      "id": "1:289",
+      "name": "x-axis-legend",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -776.5,
+        "y": 8245.419921875,
+        "width": 894.840087890625,
+        "height": 30.0
+      }
+    },
+    {
+      "id": "1:290",
+      "name": "y-axis-legend",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -896.5,
+        "y": 8275.419921875,
+        "width": 120.0,
+        "height": 3739.500732421875
+      }
+    },
+    {
+      "id": "1:304",
+      "name": "Symbols",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -896.5,
+        "y": 12078.9208984375,
+        "width": 300.0,
+        "height": 732.0
+      }
+    },
+    {
+      "id": "1:113",
+      "name": "variant=1",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12108.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:116",
+      "name": "variant=2",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12186.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:119",
+      "name": "variant=3",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12264.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:126",
+      "name": "variant=4",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12342.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:129",
+      "name": "variant=5",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12420.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:132",
+      "name": "variant=6",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12498.9208984375,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:135",
+      "name": "variant=7",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12576.9208984375,
+        "width": 28.0,
+        "height": 28.0
+      }
+    },
+    {
+      "id": "1:138",
+      "name": "variant=8",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12654.9208984375,
+        "width": 24.0,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:156",
+      "name": "variant=9",
+      "type": "COMPONENT",
+      "category": "Layout_agent",
+      "size": {
+        "x": -746.5,
+        "y": 12732.9208984375,
+        "width": 32.0,
+        "height": 32.0
+      }
+    },
+    {
+      "id": "1:305",
+      "name": "y-axis-legend",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -896.5,
+        "y": 12078.9208984375,
+        "width": 120.0,
+        "height": 732.0
+      }
+    },
+    {
+      "id": "1:946",
+      "name": "",
+      "type": "SECTION",
+      "category": "Layout_agent",
+      "size": {
+        "x": -960.5,
+        "y": 76.0,
+        "width": 2120.0,
+        "height": 7421.419921875
+      }
+    },
+    {
+      "id": "1:321",
+      "name": "Frame",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -860.5,
+        "y": 176.0,
+        "width": 1920.0,
+        "height": 7221.419921875
+      }
+    },
+    {
+      "id": "1:322",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -860.5,
+        "y": 176.0,
+        "width": 1920.0,
+        "height": 44.0
+      }
+    },
+    {
+      "id": "1:334",
+      "name": "Main",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -836.0,
+        "y": 278.0,
+        "width": 1920.0,
+        "height": 6163.15234375
+      }
+    },
+    {
+      "id": "1:336",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -209.3299560546875,
+        "y": 398.0,
+        "width": 666.6599731445312,
+        "height": 404.5899963378906
+      }
+    },
+    {
+      "id": "1:338",
+      "name": "Heading 1",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -197.3299560546875,
+        "y": 396.8999938964844,
+        "width": 642.6599731445312,
+        "height": 154.69000244140625
+      }
+    },
+    {
+      "id": "1:359",
+      "name": "Paragraph+Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -284.64599609375,
+        "y": 934.1900159078472,
+        "width": 817.2920582573098,
+        "height": 761.6224307929148
+      }
+    },
+    {
+      "id": "1:381",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -812.0,
+        "y": 1827.412353515625,
+        "width": 1872.0,
+        "height": 1377.0
+      }
+    },
+    {
+      "id": "1:383",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -388.0,
+        "y": 1884.2623291015625,
+        "width": 1024.0,
+        "height": 1277.1300048828125
+      }
+    },
+    {
+      "id": "I1:390;1:57",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 1991.452392578125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:390;1:60",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -363.0,
+        "y": 1992.452392578125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:395;1:67",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 1991.452392578125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:395;1:68",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -29.670013427734375,
+        "y": 1992.452392578125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:400;1:72",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 1991.452392578125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:400;1:73",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 303.65997314453125,
+        "y": 1992.452392578125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:405;1:77",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 2287.932373046875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:405;1:78",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -363.0,
+        "y": 2288.932373046875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:410;1:82",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 2287.932373046875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:410;1:83",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -29.670013427734375,
+        "y": 2288.932373046875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:415;1:87",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 2287.932373046875,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:415;1:88",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 303.65997314453125,
+        "y": 2288.932373046875,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:420;1:92",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 2584.42236328125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:420;1:93",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -363.0,
+        "y": 2585.42236328125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:425;1:97",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 2584.42236328125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:425;1:98",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -29.670013427734375,
+        "y": 2585.42236328125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:430;1:102",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 2584.42236328125,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:430;1:103",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 303.65997314453125,
+        "y": 2585.42236328125,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "I1:435;1:107",
+      "name": "Background+Border+Shadow",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 2880.90234375,
+        "width": 309.3299865722656,
+        "height": 248.47999572753906
+      }
+    },
+    {
+      "id": "I1:435;1:108",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -363.0,
+        "y": 2881.90234375,
+        "width": 307.3299865722656,
+        "height": 16.0
+      }
+    },
+    {
+      "id": "1:440",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 3336.01220703125,
+        "width": 1000.0,
+        "height": 3041.139892578125
+      }
+    },
+    {
+      "id": "1:442",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 3491.192138671875,
+        "width": 333.3299865722656,
+        "height": 672.7999877929688
+      }
+    },
+    {
+      "id": "1:443",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3491.192138671875,
+        "width": 309.3299865722656,
+        "height": 45.79999923706055
+      }
+    },
+    {
+      "id": "1:445",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3536.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:447",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:448",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:451",
+      "name": "d50elk3aty9izwnvxg4fyqsowezs",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:452",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3560.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:455",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3584.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:460",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3655.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:462",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:463",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:464",
+      "name": "smyfkf8v7zk3cbegfbzgoczric7a",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:465",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3679.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:467",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3703.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:470",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3774.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:472",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:473",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:474",
+      "name": "0rh9vdadgi0vhjqcey8vmo2pwsop",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:475",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3798.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:477",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3822.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:480",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3893.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:482",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:483",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:484",
+      "name": "qf08hptu8bq12p7jv2dlx38oprwb",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:485",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3917.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:487",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 3941.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:490",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4012.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:492",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:493",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:494",
+      "name": "wywftp75yhd1c3a9jfnsbno7cai4",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:495",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 4036.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:497",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -300.0,
+        "y": 4060.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:500",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 3491.192138671875,
+        "width": 333.3299865722656,
+        "height": 672.7999877929688
+      }
+    },
+    {
+      "id": "1:501",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3491.192138671875,
+        "width": 309.3299865722656,
+        "height": 45.79999923706055
+      }
+    },
+    {
+      "id": "1:503",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3536.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:505",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:506",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:507",
+      "name": "n3i0z8klsyjaqnz7o0svdchgmdtq",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:508",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3560.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:510",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3584.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:513",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3655.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:515",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:516",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:517",
+      "name": "hqb0xedw6nj8efp0gyeyahlz4ebw",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:518",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3679.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:520",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3703.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:523",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3774.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:525",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:526",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:527",
+      "name": "bl2hiwifo7jr5q6s1mo9onfk8w4n",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:528",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3798.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:530",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3822.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:533",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3893.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:535",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:536",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:537",
+      "name": "jyf7kf43240pz59d4ucnmv2n1qld",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:538",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3917.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:540",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 3941.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:543",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4012.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:545",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:546",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:547",
+      "name": "ltp260hk32pfjprncly7uti5pfyv",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:548",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 4036.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:550",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 33.329986572265625,
+        "y": 4060.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:553",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 3491.192138671875,
+        "width": 333.3299865722656,
+        "height": 672.7999877929688
+      }
+    },
+    {
+      "id": "1:554",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3491.192138671875,
+        "width": 309.3299865722656,
+        "height": 45.79999923706055
+      }
+    },
+    {
+      "id": "1:556",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3536.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:558",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:559",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:560",
+      "name": "jpkbqgghqeegfc75r3nns8wt4aco",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3560.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:561",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3560.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:563",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3584.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:566",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3655.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:568",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:569",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:570",
+      "name": "m3walsuysx8dtk8ulkuvjdw63xub",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3679.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:571",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3679.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:573",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3703.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:576",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3774.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:578",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:579",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:580",
+      "name": "ngnjvtp28a6zo6yxojzwiuqpsmhg",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3798.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:581",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3798.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:583",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3822.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:586",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3893.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:588",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:589",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:590",
+      "name": "4gdq33kq00pkzkg4jws9b3jy7k9k",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3917.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:591",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3917.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:593",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 3941.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:596",
+      "name": "HorizontalBorder",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4012.9921875,
+        "width": 309.3299865722656,
+        "height": 119.0
+      }
+    },
+    {
+      "id": "1:598",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:599",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:600",
+      "name": "o0ya5yfkmxqyi4k7uasrhrgoouj9",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4036.9921875,
+        "width": 48.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:601",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 4036.9921875,
+        "width": 245.3300018310547,
+        "height": 24.0
+      }
+    },
+    {
+      "id": "1:603",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 366.65997314453125,
+        "y": 4060.9921875,
+        "width": 245.3300018310547,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:609",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 4431.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:611",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4431.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:616",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 4431.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:617",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4431.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:622",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 4431.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:623",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4431.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:628",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 4781.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:629",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4781.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:638",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 4781.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:639",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4781.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:644",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 4781.18212890625,
+        "width": 333.3299865722656,
+        "height": 350.0
+      }
+    },
+    {
+      "id": "1:645",
+      "name": "Background",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4781.18212890625,
+        "width": 309.3299865722656,
+        "height": 160.0
+      }
+    },
+    {
+      "id": "1:657",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5379.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:661",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5379.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:665",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5379.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:669",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5417.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:673",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5417.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:677",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5417.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:681",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5455.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:685",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5455.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:689",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5455.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:693",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5493.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:697",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5493.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:701",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5493.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:705",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5531.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:709",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5531.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:713",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5531.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:717",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5569.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:721",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5569.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:725",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5569.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:729",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5607.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:733",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -42.670013427734375,
+        "y": 5607.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:737",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 290.65997314453125,
+        "y": 5607.162109375,
+        "width": 333.3299865722656,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:744",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5864.3525390625,
+        "width": 1000.0,
+        "height": 640.0
+      }
+    },
+    {
+      "id": "1:745",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -376.0,
+        "y": 5864.3525390625,
+        "width": 250.0,
+        "height": 1306.0
+      }
+    },
+    {
+      "id": "1:747",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 5929.3525390625,
+        "width": 209.61000061035156,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:756",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -351.6199951171875,
+        "y": 6129.3525390625,
+        "width": 160.27000427246094,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:761",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -323.30999755859375,
+        "y": 6245.3525390625,
+        "width": 140.88999938964844,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:766",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -364.0,
+        "y": 6361.3525390625,
+        "width": 216.69000244140625,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:771",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -126.0,
+        "y": 5864.3525390625,
+        "width": 250.0,
+        "height": 1306.0
+      }
+    },
+    {
+      "id": "1:773",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -114.0,
+        "y": 5887.3525390625,
+        "width": 214.86000061035156,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:779",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -114.0,
+        "y": 6150.3525390625,
+        "width": 221.08999633789062,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:785",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -114.0,
+        "y": 6266.3525390625,
+        "width": 211.63999938964844,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:791",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -35.86000061035156,
+        "y": 6424.3525390625,
+        "width": 127.55000305175781,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:794",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 124.0,
+        "y": 5864.3525390625,
+        "width": 250.0,
+        "height": 1306.0
+      }
+    },
+    {
+      "id": "1:796",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 201.16000366210938,
+        "y": 5971.3525390625,
+        "width": 123.2300033569336,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:800",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 164.0,
+        "y": 6013.3525390625,
+        "width": 125.05000305175781,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:805",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 236.86000061035156,
+        "y": 6129.3525390625,
+        "width": 111.83000183105469,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:810",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 136.0,
+        "y": 6287.3525390625,
+        "width": 204.27000427246094,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:816",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 136.0,
+        "y": 6424.3525390625,
+        "width": 225.97999572753906,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:821",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 374.0,
+        "y": 5864.3525390625,
+        "width": 250.0,
+        "height": 1306.0
+      }
+    },
+    {
+      "id": "1:823",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 386.0,
+        "y": 5950.3525390625,
+        "width": 225.91000366210938,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:828",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 386.0,
+        "y": 6045.3525390625,
+        "width": 136.97000122070312,
+        "height": 17.0
+      }
+    },
+    {
+      "id": "1:833",
+      "name": "Paragraph+Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 386.0,
+        "y": 6329.3525390625,
+        "width": 219.72999572753906,
+        "height": 38.0
+      }
+    },
+    {
+      "id": "1:840",
+      "name": "Overlay",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -862.0,
+        "y": 6626.0,
+        "width": 1920.0,
+        "height": 287.0
+      }
+    },
+    {
+      "id": "1:843",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -205.0,
+        "y": 6662.0,
+        "width": 666.6599731445312,
+        "height": 216.19000244140625
+      }
+    },
+    {
+      "id": "1:849",
+      "name": "Footer",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -372.0,
+        "y": 6975.0,
+        "width": 1000.0,
+        "height": 359.3800048828125
+      }
+    },
+    {
+      "id": "1:850",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -372.0,
+        "y": 7015.47998046875,
+        "width": 250.0,
+        "height": 318.8999938964844
+      }
+    },
+    {
+      "id": "1:856",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -122.0,
+        "y": 7015.47998046875,
+        "width": 250.0,
+        "height": 318.8999938964844
+      }
+    },
+    {
+      "id": "1:862",
+      "name": "List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -110.0,
+        "y": 7051.16015625,
+        "width": 226.0,
+        "height": 120.0
+      }
+    },
+    {
+      "id": "1:871",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 128.0,
+        "y": 7015.47998046875,
+        "width": 250.0,
+        "height": 318.8999938964844
+      }
+    },
+    {
+      "id": "1:874",
+      "name": "List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 140.0,
+        "y": 7051.18017578125,
+        "width": 226.0,
+        "height": 111.80000305175781
+      }
+    },
+    {
+      "id": "1:882",
+      "name": "List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 140.0,
+        "y": 7214.3798828125,
+        "width": 226.0,
+        "height": 120.0
+      }
+    },
+    {
+      "id": "1:891",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 378.0,
+        "y": 7015.47998046875,
+        "width": 250.0,
+        "height": 318.8999938964844
+      }
+    },
+    {
+      "id": "1:893",
+      "name": "List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 390.0,
+        "y": 7051.16015625,
+        "width": 226.0,
+        "height": 120.0
+      }
+    },
+    {
+      "id": "1:907",
+      "name": "Header",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -860.5,
+        "y": 220.0,
+        "width": 1920.0,
+        "height": 53.0
+      }
+    },
+    {
+      "id": "1:910",
+      "name": "Container",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -412.5,
+        "y": 220.0,
+        "width": 1024.0,
+        "height": 52.0
+      }
+    },
+    {
+      "id": "1:912",
+      "name": "square-logo-v2-on-light-8e7bdd22c0b7972d6564f67d0066a2d93a197cbe0ca70f5b4889c3541331d6b1.svg",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -388.5,
+        "y": 230.0,
+        "width": 32.0,
+        "height": 32.0
+      }
+    },
+    {
+      "id": "1:914",
+      "name": "square-logo-v2-on-light-8e7bdd22c0b7972d6564f67d0066a2d93a197cbe0ca70f5b4889c3541331d6b1.svg fill",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": -388.5,
+        "y": 230.0,
+        "width": 32.0,
+        "height": 32.0
+      }
+    },
+    {
+      "id": "1:935",
+      "name": "List",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "x": 156.44000244140625,
+        "y": 233.5,
+        "width": 262.0,
+        "height": 24.0
       }
     }
   ],
   "Usability_agent": [
     {
-      "id": "15:131",
-      "name": "button",
-      "type": "RECTANGLE",
+      "id": "1:339",
+      "name": "The all-in-one platform for academic websites",
+      "type": "TEXT",
       "category": "Usability_agent",
       "size": {
-        "x": 42.0,
-        "y": 856.0,
-        "width": 297.0,
-        "height": 60.0
+        "x": -189.5149688720703,
+        "y": 396.8999938964844,
+        "width": 627.0,
+        "height": 154.0
       }
     },
     {
-      "id": "15:134",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:348",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 691.0,
-        "y": 31.0,
-        "width": 103.0,
-        "height": 43.0
+        "x": -56.89996337890625,
+        "y": 721.5899658203125,
+        "width": 258.0,
+        "height": 48.0
       }
     },
     {
-      "id": "15:135",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:352",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 814.0,
-        "y": 31.0,
-        "width": 83.0,
-        "height": 43.0
+        "x": 209.780029296875,
+        "y": 721.5899658203125,
+        "width": 96.0,
+        "height": 48.0
       }
     },
     {
-      "id": "15:136",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:446",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 917.0,
-        "y": 31.0,
-        "width": 181.0,
-        "height": 43.0
+        "x": -364.0,
+        "y": 3560.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
       }
     },
     {
-      "id": "15:137",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:461",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 1118.0,
-        "y": 31.0,
-        "width": 132.0,
-        "height": 43.0
+        "x": -364.0,
+        "y": 3679.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
       }
     },
     {
-      "id": "15:138",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:471",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 1270.0,
-        "y": 31.0,
-        "width": 107.0,
-        "height": 43.0
+        "x": -364.0,
+        "y": 3798.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
       }
     },
     {
-      "id": "15:139",
-      "name": "Navigation button",
-      "type": "INSTANCE",
+      "id": "1:481",
+      "name": "Link",
+      "type": "FRAME",
       "category": "Usability_agent",
       "size": {
-        "x": 1397.0,
-        "y": 31.0,
-        "width": 105.0,
-        "height": 43.0
+        "x": -364.0,
+        "y": 3917.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:491",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -364.0,
+        "y": 4036.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:504",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3560.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:514",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3679.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:524",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3798.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:534",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 3917.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:544",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4036.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:557",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3560.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:567",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3679.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:577",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3798.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:587",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 3917.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:597",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4036.9921875,
+        "width": 309.3299865722656,
+        "height": 66.0
+      }
+    },
+    {
+      "id": "1:606",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -3.480010986328125,
+        "y": 4163.9921875,
+        "width": 260.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:621",
+      "name": "Owlstown gives you the tools to keep your website updated easily. Update your list of publications with a click of a button. Edit your content while on your desktop or on your mobile device.",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": -30.670013427734375,
+        "y": 4637.18212890625,
+        "width": 300.0,
+        "height": 120.0
+      }
+    },
+    {
+      "id": "1:627",
+      "name": "Create and maintain different types of academic content. Owlstown supports publications, projects, people, courses, news, custom pages, contact info, CV, and social links.",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": 302.65997314453125,
+        "y": 4637.18212890625,
+        "width": 294.0,
+        "height": 120.0
+      }
+    },
+    {
+      "id": "1:650",
+      "name": "Heading 2 → Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -68.66000366210938,
+        "y": 5131.08203125,
+        "width": 387.010009765625,
+        "height": 29.0
+      }
+    },
+    {
+      "id": "1:742",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": 62.25,
+        "y": 6528.3525390625,
+        "width": 125.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:792",
+      "name": "an amazing platform",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": -35.86000061035156,
+        "y": 6422.3525390625,
+        "width": 127.9477310180664,
+        "height": 21.0
+      }
+    },
+    {
+      "id": "1:795",
+      "name": "Shoutout to Ian at Owlstown for his hard work creating a website platform to best meet his users' needs. I emailed him with a question about a feature. He asked follow up questions,",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": 136.0,
+        "y": 5864.3525390625,
+        "width": 223.05319213867188,
+        "height": 126.0
+      }
+    },
+    {
+      "id": "1:814",
+      "name": "love the platform! —Jacqueline Shaia, PhD student",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": 136.0,
+        "y": 6327.3525390625,
+        "width": 197.72000122070312,
+        "height": 42.0
+      }
+    },
+    {
+      "id": "1:838",
+      "name": "Thanks so much for your help, and for creating this platform-- I had a hard time designing a website using other tools and kept putting it off,",
+      "type": "TEXT",
+      "category": "Usability_agent",
+      "size": {
+        "x": 386.0,
+        "y": 6422.3525390625,
+        "width": 218.09226989746094,
+        "height": 84.0
+      }
+    },
+    {
+      "id": "1:847",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -0.6850128173828125,
+        "y": 6830.39990234375,
+        "width": 258.0,
+        "height": 48.0
+      }
+    },
+    {
+      "id": "1:911",
+      "name": "Link",
+      "type": "FRAME",
+      "category": "Usability_agent",
+      "size": {
+        "x": -388.5,
+        "y": 230.0,
+        "width": 44.0,
+        "height": 32.0
       }
     }
   ]

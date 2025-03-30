@@ -1,0 +1,418 @@
+{
+  "metadata": {
+    "title": "Urban Snap",
+    "meta_tags": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "Urban Snap allows citizens to report urban issues using deep learning and geolocation tagging for faster resolution. Join the movement for a better city!",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "keywords": "civic issue reporting app, urban problem solving, community issue tracker, municipal complaint system, city maintenance reporting, neighborhood improvement app, civic engagement platform, urban infrastructure monitoring, report pothole near me app, street light not working reporting, garbage collection complaint app, municipal water leakage reporting, sewage overflow reporting system, road repair tracking app, street cleaning request app, local infrastructure issue tracker, AI-based issue detection app, photo recognition complaint system, real-time issue tracking platform, community problem reporting software, mobile civic engagement tool, municipal complaint tracking , urban snap",
+      "googlebot": "index, follow",
+      "format-detection": "telephone=no",
+      "theme-color": "#4A90E2",
+      "apple-mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-status-bar-style": "black"
+    }
+  },
+  "selenium_test_elements": [
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#intro",
+      "text": ""
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#about",
+      "text": "About Us"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#products",
+      "text": "Products"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#features",
+      "text": "Features"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#data-analytics",
+      "text": "Data Analytics"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#our-team",
+      "text": "Our Team"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#support",
+      "text": "Support"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/community.html",
+      "text": "Join Now"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/authentication.html",
+      "text": "Log in"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/download.html",
+      "text": "Download App"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/authentication.html",
+      "text": "Log in"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/download.html",
+      "text": "Download App"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/community.html",
+      "text": "Join Now"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#about",
+      "text": "About Us"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#products",
+      "text": "Products"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#features",
+      "text": "Features"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#data-analytics",
+      "text": "Data Analytics"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "#our-team",
+      "text": "Our Team"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/community.html",
+      "text": "Join Now"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/authentication.html",
+      "text": "Log in"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "./HTML files/download.html",
+      "text": "Download App"
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "https://www.instagram.com/urbansnap05/",
+      "text": ""
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "https://www.linkedin.com/in/urban-snap-56ba742ba",
+      "text": ""
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "https://www.facebook.com/people/Urban-Snap/pfbid0ibpxc3b97e1HTn7dtTcK8MfVqzD9UWNEvJAHfCmRDWKsPEe6NFoYR8faryCujqq9l/",
+      "text": ""
+    },
+    {
+      "action": "navigate",
+      "type": "link",
+      "href": "mailto:urbansnap05@gmail.com",
+      "text": ""
+    }
+  ],
+  "frontend_testing": {
+    "buttons": [],
+    "input_fields": [],
+    "forms": [],
+    "links": [
+      {
+        "href": "#intro",
+        "text": ""
+      },
+      {
+        "href": "#about",
+        "text": "About Us"
+      },
+      {
+        "href": "#products",
+        "text": "Products"
+      },
+      {
+        "href": "#features",
+        "text": "Features"
+      },
+      {
+        "href": "#data-analytics",
+        "text": "Data Analytics"
+      },
+      {
+        "href": "#our-team",
+        "text": "Our Team"
+      },
+      {
+        "href": "#support",
+        "text": "Support"
+      },
+      {
+        "href": "./HTML files/community.html",
+        "text": "Join Now"
+      },
+      {
+        "href": "./HTML files/authentication.html",
+        "text": "Log in"
+      },
+      {
+        "href": "./HTML files/download.html",
+        "text": "Download App"
+      },
+      {
+        "href": "./HTML files/authentication.html",
+        "text": "Log in"
+      },
+      {
+        "href": "./HTML files/download.html",
+        "text": "Download App"
+      },
+      {
+        "href": "./HTML files/community.html",
+        "text": "Join Now"
+      },
+      {
+        "href": "#about",
+        "text": "About Us"
+      },
+      {
+        "href": "#products",
+        "text": "Products"
+      },
+      {
+        "href": "#features",
+        "text": "Features"
+      },
+      {
+        "href": "#data-analytics",
+        "text": "Data Analytics"
+      },
+      {
+        "href": "#our-team",
+        "text": "Our Team"
+      },
+      {
+        "href": "./HTML files/community.html",
+        "text": "Join Now"
+      },
+      {
+        "href": "./HTML files/authentication.html",
+        "text": "Log in"
+      },
+      {
+        "href": "./HTML files/download.html",
+        "text": "Download App"
+      },
+      {
+        "href": "https://www.instagram.com/urbansnap05/",
+        "text": ""
+      },
+      {
+        "href": "https://www.linkedin.com/in/urban-snap-56ba742ba",
+        "text": ""
+      },
+      {
+        "href": "https://www.facebook.com/people/Urban-Snap/pfbid0ibpxc3b97e1HTn7dtTcK8MfVqzD9UWNEvJAHfCmRDWKsPEe6NFoYR8faryCujqq9l/",
+        "text": ""
+      },
+      {
+        "href": "mailto:urbansnap05@gmail.com",
+        "text": ""
+      }
+    ],
+    "scripts": [],
+    "json_ld": []
+  },
+  "visual_testing": {
+    "css_classes": [
+      "upp upp--hidden",
+      "loader",
+      "hero",
+      "menu",
+      "afterwards1",
+      "afterwards",
+      "afterwards",
+      "close-menu",
+      "fas fa-times",
+      "open-menu",
+      "fas fa-bars",
+      "butns",
+      "login-btn",
+      "btn btn2",
+      "container",
+      "intro",
+      "content",
+      "s1",
+      "s2",
+      "t1",
+      "t2",
+      "btn btn1",
+      "images",
+      "im1",
+      "im2",
+      "im3",
+      "im4",
+      "im5",
+      "im6",
+      "im7",
+      "im8",
+      "im9",
+      "giffy",
+      "line-break",
+      "about",
+      "inform",
+      "head1",
+      "para",
+      "vs",
+      "p1",
+      "ms",
+      "p2",
+      "lmg",
+      "line-break",
+      "products",
+      "inform1",
+      "head2",
+      "para1",
+      "title",
+      "ani",
+      "pa1",
+      "naya",
+      "demo",
+      "demov",
+      "line-break",
+      "features",
+      "head3",
+      "fcont",
+      "deepl",
+      "info2",
+      "gif1",
+      "data-anly",
+      "info3",
+      "gif2",
+      "community",
+      "info4",
+      "gif3",
+      "line-break",
+      "dt",
+      "head4",
+      "potholes",
+      "info5",
+      "potvid",
+      "line-break",
+      "our-team",
+      "heading",
+      "head5",
+      "main-box",
+      "right",
+      "cont2",
+      "people people8",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people1",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people2",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people3",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people4",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people5",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people6",
+      "front",
+      "back",
+      "yellow-line",
+      "cont2",
+      "people people7",
+      "front",
+      "back",
+      "yellow-line",
+      "support",
+      "row",
+      "col lg",
+      "logo",
+      "rd",
+      "yl",
+      "logodis",
+      "col links implinks",
+      "head6",
+      "col links otherlinks",
+      "head7",
+      "col connect",
+      "socialmedia",
+      "fa-brands fa-instagram",
+      "fa-brands fa-linkedin",
+      "fa-brands fa-facebook",
+      "fa-regular fa-envelope",
+      "copyright"
+    ]
+  }
+}

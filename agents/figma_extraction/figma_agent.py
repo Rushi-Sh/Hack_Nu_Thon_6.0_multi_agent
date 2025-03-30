@@ -79,7 +79,7 @@ def fetch_figma_uiux_json(figma_url):
     return {"error": "Failed to fetch data from Figma API."}
 
 if __name__ == "__main__":
-    figma_url = "https://www.figma.com/design/jEwcn0Rt7XinS4hTiKgGAB/HackNUthonTest?node-id=0-1&p=f&t=iMKT9tbeDYBjza3Z-0"
+    figma_url = "https://www.figma.com/design/o3Db7Glee6KXsGru2koNOx/OWLSTOWN-REPLICA-%7C-PRAC-4?node-id=0-1&p=f&t=16Hu9t5CJn5HJYBL-0"
     figma_data = fetch_figma_uiux_json(figma_url)
     
     if "error" in figma_data:

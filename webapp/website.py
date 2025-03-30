@@ -2,8 +2,9 @@ import streamlit as st
 import requests
 import PyPDF2
 
-# Flask API URL (Update if running on a different host)
-API_URL = "http://127.0.0.1:5000/process"
+# Flask API URLs
+API_URL_PROCESS = "http://localhost:8501/process"
+API_URL_GENERATE_SCRIPT = "http://localhost:8501/generate_test_script"
 
 # Streamlit UI
 st.title("Automated Test Plan Generator")
@@ -11,64 +12,60 @@ st.title("Automated Test Plan Generator")
 # Input field for Figma URL
 figma_url = st.text_input("Enter Figma File URL", placeholder="https://www.figma.com/file/xyz123/design")
 
-# Input field for Website URL
-# website_url = st.text_input("Enter Website URL for Testing", placeholder="https://example.com")
-
 # File uploader for PDF requirements
 uploaded_file = st.file_uploader("Upload PDF with Testing Requirements", type=["pdf"])
 
-requirements_list = []
-
-if uploaded_file:
-    # Read PDF content
-    pdf_reader = PyPDF2.PdfReader(uploaded_file)
-    for page in pdf_reader.pages:
-        text = page.extract_text()
-        if text:
-            requirements_list.extend([line.strip() for line in text.split("\n") if line.strip()])
-
-# Display extracted requirements
-if requirements_list:
-    st.write("### Extracted Testing Requirements:")
-    for req in requirements_list:
-        st.write(f"- {req}")
-
-# Submit button
+# Submit button for generating test plan
 if st.button("Generate Test Plan"):
-    if figma_url  or requirements_list:
-        # Prepare payload based on available data
+    if figma_url or uploaded_file:
+        # Prepare payload
         payload = {}
         if figma_url:
             payload["figma_url"] = figma_url
-        # if website_url:
-        #     payload["website_url"] = website_url
-        
-        # Send data to Flask API
+
         files = {}
         if uploaded_file:
-            # Reset file pointer to beginning
-            uploaded_file.seek(0)
+            uploaded_file.seek(0)  # Reset file pointer
             files = {"requirement_pdf": uploaded_file}
-            
-        # Send request with JSON payload and/or files
-        if files:
-            # Don't use json parameter when sending files
-            # Instead, include the JSON data as part of the form data
-            response = requests.post(API_URL, data=payload, files=files)
-        else:
-            response = requests.post(API_URL, json=payload)
         
-        # Display API response
-        if response.status_code == 200:
-            try:
-                st.success("Test Plan Generated Successfully!")
-                st.json(response.json())
-            except requests.exceptions.JSONDecodeError:
-                st.error("Error: Invalid response from API. The server returned an invalid JSON response.")
-        else:
-            try:
+        try:
+            # Send request with JSON payload and/or files
+            response = requests.post(API_URL_PROCESS, data=payload, files=files) if files else requests.post(API_URL_PROCESS, json=payload)
+
+            # Handle API response
+            if response.status_code == 200:
+                try:
+                    test_plan = response.json()
+                    st.success("Test Plan Generated Successfully!")
+                    st.json(test_plan)
+
+                    # Ask for Website URL after generating the test plan
+                    website_url = st.text_input("Enter Website URL for Test Script", placeholder="https://example.com")
+
+                    if website_url:
+                        # Send the test case along with website URL to generate test script
+                        test_script_payload = {
+                            "website_url": website_url,
+                            "test_case": test_plan  # Assuming the API expects a "test_case" field
+                        }
+
+                        # Request to generate test script
+                        script_response = requests.post(API_URL_GENERATE_SCRIPT, json=test_script_payload)
+
+                        if script_response.status_code == 200:
+                            st.success("Test Script Generated Successfully!")
+                            st.json(script_response.json())
+                        else:
+                            st.error(f"Error: {script_response.json().get('error', 'Unknown error')}")
+                    else:
+                        st.error("Please provide a Website URL for test script generation.")
+                except requests.exceptions.JSONDecodeError:
+                    st.error("Error: Invalid response from API. The server returned an invalid JSON response.")
+            else:
                 st.error(f"Error: {response.json().get('error', 'Unknown error')}")
-            except requests.exceptions.JSONDecodeError:
-                st.error(f"Error: Server returned status code {response.status_code} with invalid JSON response.")
+
+        except requests.exceptions.RequestException as e:
+            st.error(f"Error: Unable to connect to API. {str(e)}")
+
     else:
-        st.error("Please provide at least one of the following: Figma URL or upload a PDF with testing requirements.")
+        st.error("Please provide either a Figma URL or upload a PDF with testing requirements.")

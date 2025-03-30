@@ -26,8 +26,8 @@ def chunk_text(text, max_tokens=2000):
     
     return chunks
 
-# Extract important elements for frontend & UI/UX testing
-def extract_important_elements(url):
+# Extract structured elements for Selenium JS script generation
+def extract_elements_for_selenium(url):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -38,41 +38,67 @@ def extract_important_elements(url):
             # Extract Metadata
             title = page.title()
             meta_tags = {meta.get_attribute("name"): meta.get_attribute("content") for meta in page.locator("meta").all() if meta.get_attribute("name")}
-            
-            # Extract Interactive Elements (for frontend testing)
-            buttons = [btn.inner_text() for btn in page.locator("button").all()]
-            inputs = [inp.get_attribute("name") for inp in page.locator("input").all() if inp.get_attribute("name")]
-            forms = [form.get_attribute("action") for form in page.locator("form").all() if form.get_attribute("action")]
-            links = [a.get_attribute("href") for a in page.locator("a").all() if a.get_attribute("href")]
 
-            # Extract JavaScript Execution and API Calls (for integration & performance testing)
+            # Extract Interactive Elements
+            buttons = [{
+                "text": btn.inner_text(),
+                "selector": btn.evaluate("el => el.outerHTML")
+            } for btn in page.locator("button").all()]
+            
+            inputs = [{
+                "name": inp.get_attribute("name"),
+                "type": inp.get_attribute("type"),
+                "id": inp.get_attribute("id"),
+                "selector": inp.evaluate("el => el.outerHTML")
+            } for inp in page.locator("input").all() if inp.get_attribute("name")]
+            
+            links = [{
+                "href": a.get_attribute("href"),
+                "text": a.inner_text()
+            } for a in page.locator("a").all() if a.get_attribute("href")]
+            
+            forms = [{
+                "action": form.get_attribute("action"),
+                "method": form.get_attribute("method"),
+                "selector": form.evaluate("el => el.outerHTML")
+            } for form in page.locator("form").all()]
+
+            # Extract JavaScript Execution & API Calls
             scripts = [script.inner_text() for script in page.locator("script").all()]
             json_ld_data = [script.inner_text() for script in page.locator("script[type='application/ld+json']").all()]
 
-            # Extract UI-related attributes (for visual testing)
+            # Extract UI-related attributes (for visual validation)
             css_classes = [el.get_attribute("class") for el in page.locator("*[class]").all()]
             
-            # ✅ Extract Lazy-loaded & AJAX Content
-            dynamic_elements = page.evaluate("""
-                () => {
-                    return Array.from(document.querySelectorAll('*'))
-                        .filter(el => el.hasAttributes())
-                        .map(el => {
-                            let attributes = {};
-                            for (let attr of el.attributes) {
-                                if (attr.name.startsWith('data-')) {
-                                    attributes[attr.name] = attr.value;
-                                }
-                            }
-                            return attributes;
-                        }).filter(attr => Object.keys(attr).length > 0);
-                }
-            """)
-
+            # Extract Elements for Selenium Test Cases
+            selenium_elements = []
+            for btn in buttons:
+                selenium_elements.append({
+                    "action": "click",
+                    "type": "button",
+                    "selector": btn["selector"],
+                    "text": btn["text"]
+                })
+            for inp in inputs:
+                selenium_elements.append({
+                    "action": "input",
+                    "type": inp["type"],
+                    "selector": inp["selector"],
+                    "name": inp["name"]
+                })
+            for link in links:
+                selenium_elements.append({
+                    "action": "navigate",
+                    "type": "link",
+                    "href": link["href"],
+                    "text": link["text"]
+                })
+            
             browser.close()
-
+            
             extracted_data = {
                 "metadata": {"title": title, "meta_tags": meta_tags},
+                "selenium_test_elements": selenium_elements,
                 "frontend_testing": {
                     "buttons": buttons,
                     "input_fields": inputs,
@@ -82,8 +108,7 @@ def extract_important_elements(url):
                     "json_ld": json_ld_data
                 },
                 "visual_testing": {
-                    "css_classes": css_classes,
-                    "dynamic_content": chunk_text(str(dynamic_elements))
+                    "css_classes": css_classes
                 }
             }
             
@@ -93,14 +118,14 @@ def extract_important_elements(url):
             browser.close()
             return {"error": f"Failed to extract content: {str(e)}"}
 
-# ✅ Run the pipeline
+# ✅ Run the extraction pipeline
 if __name__ == "__main__":
-    url = "https://google.com"  # Replace with the target URL
-    extracted_data = extract_important_elements(url)
+    url = "https://urbansnap.vercel.app/"  # Replace with the target URL
+    extracted_data = extract_elements_for_selenium(url)
     
     if "error" not in extracted_data:
-        with open("testing_data.json", "w") as file:
+        with open("selenium_testing_data.json", "w") as file:
             json.dump(extracted_data, file, indent=2)
-        print("\n🔹 Extracted Data Saved to testing_data.json")
+        print("\n🔹 Extracted Data Saved to selenium_testing_data.json")
     else:
         print("\n❌ Error:", extracted_data["error"])
