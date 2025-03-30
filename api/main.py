@@ -11,6 +11,7 @@ from agents.test_generation.test_llm import generate_test_cases
 from agents.test_generation.test_manual import generate_manual_test_cases
 from agents.test_scenerio_script.sel_script import generate_selenium_js,scrape_website
 from agents.figma_image.image_test import extract_ui_elements_from_image,generate_image_test_cases
+from agents.general_chatbot.chatty import generate_chat_response
 
 app = Flask(__name__)
 
@@ -114,6 +115,21 @@ def generate_from_figma():
     except Exception as e:
         return jsonify({"error": f"Test case generation failed: {str(e)}"}), 500
 
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+
+    data = request.json if request.is_json else request.form.to_dict()
+    user_message = data.get("message", "").strip()
+
+    if not user_message:
+        return jsonify({"error": "Please provide a message"}), 400
+
+    try:
+        bot_response = generate_chat_response(user_message)
+        return jsonify({"message": "Response generated successfully", "response": bot_response})
+    except Exception as e:
+        return jsonify({"error": f"Chatbot response failed: {str(e)}"}), 500
 
 
 @app.route('/suggest_updates', methods=['POST'])

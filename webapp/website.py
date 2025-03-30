@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import json
@@ -7,6 +8,7 @@ from menu import menu  # Import menu module
 API_URL_PROCESS = "http://127.0.0.1:5000/process"
 API_URL_GENERATE_FROM_FIGMA = "http://127.0.0.1:5000/generate_from_figma"
 API_URL_MANUAL_INPUT = "http://127.0.0.1:5000/manual_input"
+API_URL_CHATBOT = "http://127.0.0.1:5000/chatbot"  # New Chatbot API Route
 
 # Display menu and get selected option
 option = menu()
@@ -22,6 +24,7 @@ if option == "Home":
     - Generate test cases manually from UI descriptions
     - Save test cases in JSON format
     - Generate Selenium test scripts from test cases
+    - **Chatbot for Software Testing Queries**
     
     Select an option from the sidebar to get started!
     """)
@@ -124,3 +127,39 @@ elif option == "Generate Test Script":
                 st.error(f"Error: Unable to connect to API. {str(e)}")
         else:
             st.error("Please provide both test cases JSON file and Website URL.")
+
+elif option == "Chatbot":
+    st.title("Software Testing Chatbot")
+    st.write("Ask any question related to **Software Testing**, and the chatbot will assist you.")
+
+    user_query = st.text_area("Enter your question:", placeholder="How do I write test cases for a login page?")
+    
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
+
+    if st.button("Ask Chatbot"):
+        if user_query.strip():
+            payload = {"message": user_query}
+            try:
+                response = requests.post(API_URL_CHATBOT, json=payload)
+                if response.status_code == 200:
+                    chatbot_reply = response.json().get("response", "No response received.")
+                    st.success("Chatbot Response:")
+                    st.write(chatbot_reply)
+
+                    # Save chat history
+                    st.session_state.chat_history.append(("You", user_query))
+                    st.session_state.chat_history.append(("Chatbot", chatbot_reply))
+
+                else:
+                    st.error(f"Error: {response.json().get('error', 'Unknown error')}")
+            except requests.exceptions.RequestException as e:
+                st.error(f"Error: Unable to connect to chatbot API. {str(e)}")
+        else:
+            st.warning("Please enter a question before clicking Ask Chatbot.")
+
+    # Display chat history
+    if st.session_state.chat_history:
+        st.subheader("Chat History")
+        for sender, message in st.session_state.chat_history:
+            st.write(f"**{sender}:** {message}")
