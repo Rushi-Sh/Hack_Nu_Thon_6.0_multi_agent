@@ -8,7 +8,7 @@ import json
 load_dotenv()
 
 # Function to chunk text efficiently for LLM token limits
-def chunk_text(text, max_tokens=6000):
+def chunk_text(text, max_tokens=2000):
     encoding = tiktoken.encoding_for_model("gpt-4")
     words = text.split()
     chunks, current_chunk, current_tokens = [], [], 0

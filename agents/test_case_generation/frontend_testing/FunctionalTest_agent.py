@@ -7,19 +7,22 @@ from dotenv import load_dotenv
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-def generate_functional_tests(website_content, figma_json):
+def generate_functional_tests(state):
     """Generates functional UI test cases for buttons, forms, and interactive elements."""
+    figma_json = state["figma_json"]
+    requirements_content = state["requirements_content"]
     groq_llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
 
     prompt = PromptTemplate(
-        input_variables=["website_content", "figma_json"],
+        input_variables=["figma_json", "requirements_content"],
         template=(
-            "Analyze website functionalities from content: {website_content} and UI design from Figma JSON: {figma_json}. "
-            "Generate test cases to verify buttons, forms, modals, and dropdowns work correctly."
+            "Analyze UI functionalities from Figma JSON: {figma_json} and user requirements: {requirements_content}. "
+            "Generate functional test cases for verifying buttons, form submissions, modals, dropdowns, "
+            "error handling, input validation, and interactive elements across different states."
         ),
     )
 
     chain = LLMChain(llm=groq_llm, prompt=prompt)
-    test_cases = chain.run({"website_content": website_content, "figma_json": figma_json})
+    test_cases = chain.run({"figma_json": figma_json, "requirements_content": requirements_content})
 
     return {"Functional_Tests": test_cases}

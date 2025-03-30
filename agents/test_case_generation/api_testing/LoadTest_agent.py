@@ -8,14 +8,22 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def generate_load_tests(requirements_content):
-    """Generates backend load and stress test cases."""
+    """Generates backend load, stress, and scalability test cases."""
+    
     groq_llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
 
     prompt = PromptTemplate(
         input_variables=["requirements_content"],
         template=(
-            "Analyze system load requirements from the extracted document: {requirements_content}. "
-            "Generate test cases to evaluate server response under heavy traffic, concurrency issues, and stress scenarios."
+            "Analyze system performance and load-handling capabilities from the provided requirements document: {requirements_content}. "
+            "Generate structured test cases covering:\n"
+            "- **Load Testing**: Measure response time, throughput, and resource utilization under expected user loads.\n"
+            "- **Stress Testing**: Simulate extreme traffic to test system limits and failure recovery mechanisms.\n"
+            "- **Scalability Testing**: Evaluate system behavior when adding/removing resources (horizontal/vertical scaling).\n"
+            "- **Concurrency & Bottleneck Analysis**: Identify thread locking, deadlocks, and synchronization issues.\n"
+            "- **Latency & Network Performance**: Test API response times under different network conditions.\n"
+            "- **Spike Testing**: Measure system resilience when handling sudden and unpredictable load spikes.\n"
+            "- **Endurance Testing**: Assess system stability over prolonged periods of sustained load.\n"
         ),
     )
 

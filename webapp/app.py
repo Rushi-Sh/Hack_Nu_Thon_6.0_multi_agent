@@ -12,7 +12,7 @@ st.title("Automated Test Plan Generator")
 figma_url = st.text_input("Enter Figma File URL", placeholder="https://www.figma.com/file/xyz123/design")
 
 # Input field for Website URL
-website_url = st.text_input("Enter Website URL for Testing", placeholder="https://example.com")
+# website_url = st.text_input("Enter Website URL for Testing", placeholder="https://example.com")
 
 # File uploader for PDF requirements
 uploaded_file = st.file_uploader("Upload PDF with Testing Requirements", type=["pdf"])
@@ -35,13 +35,13 @@ if requirements_list:
 
 # Submit button
 if st.button("Generate Test Plan"):
-    if figma_url or website_url or requirements_list:
+    if figma_url  or requirements_list:
         # Prepare payload based on available data
         payload = {}
         if figma_url:
             payload["figma_url"] = figma_url
-        if website_url:
-            payload["website_url"] = website_url
+        # if website_url:
+        #     payload["website_url"] = website_url
         
         # Send data to Flask API
         files = {}
@@ -71,4 +71,4 @@ if st.button("Generate Test Plan"):
             except requests.exceptions.JSONDecodeError:
                 st.error(f"Error: Server returned status code {response.status_code} with invalid JSON response.")
     else:
-        st.error("Please provide at least one of the following: Figma URL, Website URL, or upload a PDF with testing requirements.")
+        st.error("Please provide at least one of the following: Figma URL or upload a PDF with testing requirements.")
