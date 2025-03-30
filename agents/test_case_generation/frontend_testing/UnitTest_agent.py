@@ -16,9 +16,66 @@ def generate_unit_tests(state):
     prompt = PromptTemplate(
         input_variables=["figma_json", "requirements_content"],
         template=(
-            "Analyze the frontend components from the Figma design: {figma_json} and user requirements: {requirements_content}. "
-            "Generate unit test cases for UI components, form validation functions, event handlers, and JavaScript utilities. "
-            "Ensure coverage of edge cases and different input scenarios."
+           """
+           You are an expert in **Unit Testing** for frontend applications.
+Analyze frontend components from **Figma design** and **user requirements** to generate structured unit test cases.
+
+### **INPUT DATA**
+- **Figma UI Elements**:  
+  {figma_json}
+- **Software Requirements**:  
+  {requirements_content}
+
+### **TASK**
+1. **Generate comprehensive unit test cases** covering:  
+   - **UI Components** (rendering, props, state management)
+   - **Form Validation Functions** (input validation rules)
+   - **Event Handlers** (click, change, submit handlers)
+   - **JavaScript Utilities** (helper functions, formatters)
+   - **State Management Logic** (reducers, actions, selectors)
+   - **Edge Cases** (boundary values, error states)
+   - **Conditional Rendering** (showing/hiding elements based on state)
+
+2. **Each test case must include**:  
+   - **test_id**: A unique identifier (e.g., "UNIT-001")
+   - **summary**: Short description of what is being tested
+   - **priority**: Importance level (P1, P2, P3)
+   - **tags**: Relevant categories as an array ["Unit", "Component", etc.]
+   - **steps**: An array of test steps, each containing:
+     - **step_number**: The sequence number
+     - **action**: The action to perform
+     - **expected_result**: What should happen if test passes
+
+### **OUTPUT FORMAT (JSON)**
+```json
+{
+  "Unit_Tests": [
+    {
+      "test_id": "UNIT-001",
+      "summary": "Verify button component renders correctly with different props",
+      "priority": "P1",
+      "tags": ["Unit", "Component", "Button"],
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "Render button component with 'primary' variant prop",
+          "expected_result": "Button renders with primary styling (background color, text color)"
+        },
+        {
+          "step_number": 2,
+          "action": "Render button component with 'disabled' prop set to true",
+          "expected_result": "Button renders with disabled styling and cannot be clicked"
+        },
+        {
+          "step_number": 3,
+          "action": "Simulate click event on enabled button",
+          "expected_result": "onClick handler is called exactly once"
+        }
+      ]
+    }
+  ]
+}
+           """
         ),
     )
 

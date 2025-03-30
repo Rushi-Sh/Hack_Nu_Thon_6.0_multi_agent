@@ -16,14 +16,59 @@ def generate_layout_tests(figma_json, requirements_content):
     prompt = PromptTemplate(
         input_variables=["figma_json", "requirements_content"],
         template=(
-            "Analyze the layout structure from Figma JSON: {figma_json} "
-            "and the project requirements: {requirements_content}. "
-            "Generate structured test cases for:\n"
-            "- Layout consistency across screen sizes\n"
-            "- Grid alignment and responsiveness\n"
-            "- Spacing, margins, and padding compliance\n"
-            "- Component positioning and relative alignment\n"
-            "- Overlapping or misaligned UI elements"
+           """
+           You are an expert in **Layout Testing** for UI applications.
+Analyze the layout structure from **Figma JSON** and the **project requirements** to generate structured layout test cases.
+
+### **INPUT DATA**
+- **Figma UI Elements**:  
+  {figma_json}
+- **Software Requirements**:  
+  {requirements_content}
+
+### **TASK**
+1. **Generate comprehensive layout test cases** covering:  
+   - **Layout Consistency** across screen sizes and resolutions
+   - **Grid Alignment and Responsiveness**
+   - **Spacing, Margins, and Padding Compliance**
+   - **Component Positioning and Relative Alignment**
+   - **Overlapping or Misaligned UI Elements**  
+
+2. **Each test case must include**:  
+   - **test_id**: A unique identifier (e.g., "LAY-001")
+   - **summary**: Short description of what is being tested
+   - **priority**: Importance level (P1, P2, P3)
+   - **tags**: Relevant categories as an array ["Layout", "Grid", etc.]
+   - **steps**: An array of test steps, each containing:
+     - **step_number**: The sequence number
+     - **action**: The action to perform
+     - **expected_result**: What should happen if test passes
+
+### **OUTPUT FORMAT (JSON)**
+```json
+{
+  "Layout_Tests": [
+    {
+      "test_id": "LAY-001",
+      "summary": "Verify grid alignment across desktop resolution",
+      "priority": "P1",
+      "tags": ["Layout", "Grid", "Desktop"],
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "Load the application on 1920x1080 resolution",
+          "expected_result": null
+        },
+        {
+          "step_number": 2,
+          "action": "Inspect alignment of key UI components",
+          "expected_result": "All elements align properly to the defined grid system"
+        }
+      ]
+    }
+  ]
+}
+           """
         ),
     )
 

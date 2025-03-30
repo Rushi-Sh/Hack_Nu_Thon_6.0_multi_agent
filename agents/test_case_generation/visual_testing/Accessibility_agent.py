@@ -21,14 +21,49 @@ def generate_accessibility_tests(state):
     prompt = PromptTemplate(
         input_variables=["figma_json", "requirements_content"],
         template=(
-            "Analyze the UI elements from Figma JSON: {figma_json} and "
-            "the project requirements: {requirements_content}. "
-            "Generate WCAG-compliant accessibility test cases, covering: \n"
-            "- Contrast ratios \n"
-            "- Text size and readability \n"
-            "- Keyboard navigation support \n"
-            "- ARIA labels and semantic HTML compliance \n"
-            "- Screen reader compatibility and focus order."
+            """
+        You are an expert in **Accessibility Testing**, following **WCAG** guidelines. 
+        Analyze the UI elements from **Figma JSON** and the **project requirements** to generate structured accessibility test cases.
+
+        ### **INPUT DATA**
+        - **Figma UI Elements**:  
+        {figma_json}
+        - **Software Requirements**:  
+        {requirements_content}
+
+        ### **TASK**
+        Generate WCAG-compliant accessibility test cases covering:  
+        - Contrast Ratios (e.g., sufficient text/background contrast)  
+        - Text Size & Readability (e.g., minimum font size, legibility)  
+        - Keyboard Navigation Support (e.g., tab order, focus state)  
+        - ARIA Labels & Semantic HTML Compliance  
+        - Screen Reader Compatibility & Focus Order  
+
+        ### **OUTPUT FORMAT (JSON)**
+        ```json
+        {
+        "Accessibility_Tests": [
+            {
+            "test_id": "ACC-001",
+            "summary": "Verify text contrast ratio meets WCAG AA guidelines",
+            "priority": "P1",
+            "tags": ["Accessibility", "Contrast", "WCAG"],
+            "steps": [
+                {
+                "step_number": 1,
+                "action": "Identify all text elements and their background colors",
+                "expected_result": null
+                },
+                {
+                "step_number": 2,
+                "action": "Check contrast ratio using WCAG contrast evaluation tool",
+                "expected_result": "All text maintains minimum 4.5:1 contrast ratio for normal text and 3:1 for large text"
+                }
+            ]
+            }
+        ]
+        }
+            """
         ),
     )
 

@@ -15,15 +15,64 @@ def generate_database_tests(requirements_content):
     prompt = PromptTemplate(
         input_variables=["requirements_content"],
         template=(
-            "Analyze the database schema and queries from the provided requirements document: {requirements_content}. "
-            "Generate structured database test cases covering:\n"
-            "- **Schema Validation**: Ensure correct data types, constraints (PK, FK, NOT NULL, UNIQUE, CHECK), and relationships.\n"
-            "- **Data Integrity & Consistency**: Validate referential integrity, cascading operations, and ACID compliance.\n"
-            "- **Indexing Efficiency**: Test index performance, covering clustered vs non-clustered indexing.\n"
-            "- **Query Performance**: Benchmark slow queries, optimize joins, and analyze query execution plans.\n"
-            "- **Backup & Recovery**: Test database backup mechanisms, restoration, and disaster recovery readiness.\n"
-            "- **Concurrency & Transaction Handling**: Validate isolation levels, deadlock scenarios, and rollback behavior.\n"
-            "- **Security & Access Control**: Ensure role-based access control, encryption, and SQL injection prevention.\n"
+           """
+           You are an expert in **Database Testing** for web applications.
+Analyze the database schema and queries from the provided requirements document to generate structured database test cases.
+
+### **INPUT DATA**
+- **Database Requirements**:  
+  {requirements_content}
+
+### **TASK**
+1. **Generate comprehensive database test cases** covering:  
+   - **Schema Validation** (data types, constraints, relationships)
+   - **Data Integrity & Consistency** (referential integrity, cascading operations)
+   - **Indexing Efficiency** (clustered vs non-clustered indexing)
+   - **Query Performance** (slow queries, join optimization, execution plans)
+   - **Backup & Recovery** (backup mechanisms, restoration, disaster recovery)
+   - **Concurrency & Transaction Handling** (isolation levels, deadlocks, rollbacks)
+   - **Security & Access Control** (role-based access, encryption, SQL injection prevention)
+
+2. **Each test case must include**:  
+   - **test_id**: A unique identifier (e.g., "DB-001")
+   - **summary**: Short description of what is being tested
+   - **priority**: Importance level (P1, P2, P3)
+   - **tags**: Relevant categories as an array ["Database", "Schema", etc.]
+   - **steps**: An array of test steps, each containing:
+     - **step_number**: The sequence number
+     - **action**: The action to perform
+     - **expected_result**: What should happen if test passes
+
+### **OUTPUT FORMAT (JSON)**
+```json
+{
+  "Database_Tests": [
+    {
+      "test_id": "DB-001",
+      "summary": "Verify foreign key constraint enforcement",
+      "priority": "P1",
+      "tags": ["Database", "Integrity", "ForeignKey"],
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "Attempt to delete a parent record with existing child records",
+          "expected_result": null
+        },
+        {
+          "step_number": 2,
+          "action": "Verify database response",
+          "expected_result": "Database rejects deletion with foreign key constraint violation error"
+        },
+        {
+          "step_number": 3,
+          "action": "Check that parent and child records remain intact",
+          "expected_result": "All records exist unchanged in the database"
+        }
+      ]
+    }
+  ]
+}
+           """
         ),
     )
 

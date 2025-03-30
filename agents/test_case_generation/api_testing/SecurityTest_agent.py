@@ -15,18 +15,67 @@ def generate_security_tests(requirements_content):
     prompt = PromptTemplate(
         input_variables=["requirements_content"],
         template=(
-            "Analyze backend security controls and potential risks based on the provided requirements document: {requirements_content}. "
-            "Generate structured test cases covering:\n"
-            "- **Authentication & Authorization**: Test login mechanisms, multi-factor authentication (MFA), OAuth, and access control enforcement.\n"
-            "- **Session Security**: Validate session expiration, fixation, hijacking, and CSRF protection.\n"
-            "- **Injection Attacks**: Detect SQL injection, NoSQL injection, command injection, and LDAP injection vulnerabilities.\n"
-            "- **Cross-Site Scripting (XSS) & Cross-Site Request Forgery (CSRF)**: Test for stored, reflected, and DOM-based XSS, and validate CSRF token implementation.\n"
-            "- **API Security**: Assess API token management, rate limiting, CORS policies, and broken object-level authorization (BOLA) issues.\n"
-            "- **Data Encryption & Storage**: Verify password hashing, TLS enforcement, and exposure of sensitive data.\n"
-            "- **Server & Infrastructure Security**: Identify misconfigurations, open ports, default credentials, and logging vulnerabilities.\n"
-            "- **Denial-of-Service (DoS) & Rate Limiting**: Simulate high-traffic scenarios to test rate limiting and DoS resilience.\n"
-            "- **Third-Party Dependency & Supply Chain Security**: Evaluate vulnerabilities in third-party packages and libraries.\n"
-            "- **Security Headers & Policies**: Check HTTP security headers, Content Security Policy (CSP), and HSTS enforcement.\n"
+            """
+            You are an expert in **Security Testing** for backend systems.
+Analyze backend security controls and potential risks based on the provided requirements document to generate structured security test cases.
+
+### **INPUT DATA**
+- **Security Requirements**:  
+  {requirements_content}
+
+### **TASK**
+1. **Generate comprehensive security test cases** covering:  
+   - **Authentication & Authorization** (login mechanisms, MFA, OAuth, access control)
+   - **Session Security** (expiration, fixation, hijacking, CSRF protection)
+   - **Injection Attacks** (SQL, NoSQL, command, LDAP injection)
+   - **Cross-Site Scripting (XSS) & Cross-Site Request Forgery (CSRF)**
+   - **API Security** (token management, rate limiting, CORS policies)
+   - **Data Encryption & Storage** (password hashing, TLS enforcement)
+   - **Server & Infrastructure Security** (configurations, open ports)
+   - **Denial-of-Service (DoS) & Rate Limiting**
+   - **Third-Party Dependency & Supply Chain Security**
+   - **Security Headers & Policies** (CSP, HSTS)
+
+2. **Each test case must include**:  
+   - **test_id**: A unique identifier (e.g., "SEC-001")
+   - **summary**: Short description of what is being tested
+   - **priority**: Importance level (P1, P2, P3)
+   - **tags**: Relevant categories as an array ["Security", "Authentication", etc.]
+   - **steps**: An array of test steps, each containing:
+     - **step_number**: The sequence number
+     - **action**: The action to perform
+     - **expected_result**: What should happen if test passes
+
+### **OUTPUT FORMAT (JSON)**
+```json
+{
+  "Security_Tests": [
+    {
+      "test_id": "SEC-001",
+      "summary": "Verify protection against SQL injection attacks",
+      "priority": "P1",
+      "tags": ["Security", "Injection", "SQLi"],
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "Identify input fields that interact with the database",
+          "expected_result": null
+        },
+        {
+          "step_number": 2,
+          "action": "Attempt SQL injection payloads in login form ('OR 1=1--)",
+          "expected_result": "System rejects input and does not authenticate user"
+        },
+        {
+          "step_number": 3,
+          "action": "Review database logs",
+          "expected_result": "Attack attempt is logged with appropriate details"
+        }
+      ]
+    }
+  ]
+}
+            """
         ),
     )
 

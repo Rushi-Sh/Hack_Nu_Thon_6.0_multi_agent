@@ -2,74 +2,77 @@ import requests
 import re
 import logging
 import orjson
-import tiktoken
+import time
 
-# API Token and Limits
 FIGMA_API_TOKEN = "figd_6wWgkoTn-oST522A4G6IyOcweCqPCeKyS8a6CQoj"
-TOKEN_LIMIT = 3000  # Adjust for API constraints
+MAX_RETRIES = 5  # Retry attempts for API requests
 
 # Extract file key from Figma URL
 def extract_file_key(figma_url):
     match = re.search(r"https://www\.figma\.com/(?:file|design)/([a-zA-Z0-9-_]+)", figma_url)
     return match.group(1) if match else None
 
-# Categorize UI/UX elements for structured testing
+# Categorize UI/UX elements for testing agents
 def categorize_uiux_elements(node):
     element_type = node.get("type", "UNKNOWN").lower()
-    category = "Uncategorized"
+    name = node.get("name", "").lower()
 
-    if element_type in ["frame", "container"]:
-        category = "Layout_agent"
-    elif "responsive" in node.get("name", "").lower():
-        category = "Responsiveness_agent"
-    elif "contrast" in node.get("name", "").lower():
-        category = "Accessibility_agent"
-    elif "tooltip" in node.get("name", "").lower():
-        category = "Usability_agent"
+    layout_keywords = ["frame", "group", "container", "section", "component"]
+    usability_keywords = ["button", "form", "input", "tooltip", "modal", "dropdown", "checkbox", "radio", "link", "interaction"]
 
-    return category
+    if element_type in layout_keywords:
+        return "Layout_agent"
+    if any(keyword in name for keyword in usability_keywords):
+        return "Usability_agent"
+    
+    return None  # Ignore non-relevant elements
 
-# Extract only relevant UI/UX details, ensuring API limits are respected
+# Extract relevant UI/UX details from a Figma node
 def extract_uiux_details(node):
     if not isinstance(node, dict):
-        return {}
+        return None
 
-    element_category = categorize_uiux_elements(node)
+    category = categorize_uiux_elements(node)
+    if not category:
+        return None  # Skip irrelevant elements
+
     return {
         "id": node.get("id"),
         "name": node.get("name", "Unnamed"),
         "type": node.get("type", "UNKNOWN"),
-        "category": element_category,
+        "category": category,
         "size": {
-            "w": node.get("absoluteBoundingBox", {}).get("width"),
-            "h": node.get("absoluteBoundingBox", {}).get("height"),
-        },
-        "children": [extract_uiux_details(child) for child in node.get("children", [])],
+            "width": node.get("absoluteBoundingBox", {}).get("width"),
+            "height": node.get("absoluteBoundingBox", {}).get("height"),
+        }
     }
 
-# Trim JSON to fit within API token limits
-def trim_json(json_data, max_tokens=TOKEN_LIMIT):
-    json_str = orjson.dumps(json_data).decode("utf-8")
-    if len(json_str) > max_tokens:
-        json_str = json_str[:max_tokens]  # Truncate the JSON to fit the limit
-    return orjson.loads(json_str)  # Convert back to dictionary
-
-# Extract UI/UX structured data from Figma JSON
+# Recursively extract and structure UI/UX elements from the Figma JSON
 def extract_uiux_data(figma_json):
     document = figma_json.get("document", {})
     if not document:
         return {"error": "Invalid JSON structure. 'document' key missing."}
 
-    extracted_data = {"UI_UX_Testing": []}
+    extracted_data = {
+        "Layout_agent": [],
+        "Usability_agent": []
+    }
 
-    for page in document.get("children", []):
-        for frame in page.get("children", []):
-            frame_details = extract_uiux_details(frame)
-            extracted_data["UI_UX_Testing"].append(frame_details)
+    def process_nodes(nodes):
+        for node in nodes:
+            node_details = extract_uiux_details(node)
+            if node_details:
+                category = node_details["category"]
+                extracted_data[category].append(node_details)
+            
+            # Recursively process children
+            if "children" in node:
+                process_nodes(node["children"])
+    
+    process_nodes(document.get("children", []))
+    return extracted_data
 
-    return trim_json(extracted_data)  # Trim JSON if needed
-
-# Fetch and process Figma JSON while handling large responses
+# Fetch and process Figma JSON with retries
 def fetch_figma_uiux_json(figma_url):
     file_key = extract_file_key(figma_url)
     if not file_key:
@@ -78,27 +81,43 @@ def fetch_figma_uiux_json(figma_url):
     url = f"https://api.figma.com/v1/files/{file_key}"
     headers = {"X-Figma-Token": FIGMA_API_TOKEN}
 
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        logging.error(f"HTTP Request Failed: {e}")
-        return {"error": f"HTTP Request Failed: {str(e)}"}
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
 
-    figma_json = response.json()
-    extracted_data = extract_uiux_data(figma_json)
+            if response.status_code == 429:  # Handle rate limiting
+                wait_time = 2 ** attempt  # Exponential backoff
+                logging.warning(f"Rate limited. Retrying in {wait_time}s...")
+                time.sleep(wait_time)
+                continue
 
-    # Save optimized extracted data to a JSON file
-    with open("figma_uiux_data.json", "wb") as f:
-        f.write(orjson.dumps(extracted_data, option=orjson.OPT_INDENT_2))
+            response.raise_for_status()  # Raise error for HTTP failures
 
-    return extracted_data
+            try:
+                figma_json = orjson.loads(response.content)  # Use orjson for efficiency
+            except orjson.JSONDecodeError as e:
+                logging.error(f"JSON Decode Error: {e}")
+                return {"error": "Invalid JSON received from Figma API"}
+
+            extracted_data = extract_uiux_data(figma_json)
+
+            # Save extracted data to a JSON file
+            with open("figma_uiux_data.json", "wb") as f:
+                f.write(orjson.dumps(extracted_data, option=orjson.OPT_INDENT_2))
+
+            return extracted_data
+
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Error fetching Figma JSON (Attempt {attempt}/{MAX_RETRIES}): {e}")
+            time.sleep(2 ** attempt)  # Retry with exponential backoff
+
+    return {"error": "Failed to fetch data from Figma API after multiple attempts."}
 
 if __name__ == "__main__":
     figma_url = "https://www.figma.com/design/jEwcn0Rt7XinS4hTiKgGAB/HackNUthonTest?node-id=0-1&p=f&t=iMKT9tbeDYBjza3Z-0"
     figma_data = fetch_figma_uiux_json(figma_url)
-    
+
     if "error" in figma_data:
-        print("Error:", figma_data["error"])
+        print("\n❌ Error:", figma_data["error"])
     else:
-        print("UI/UX Testing Data Extracted and Saved to 'figma_uiux_data.json'")
+        print("\n✅ UI/UX Testing Data Extracted and Saved to 'figma_uiux_data.json'")

@@ -22,60 +22,84 @@ class PipelineState(TypedDict):
     backend_test_cases: list
 
 def full_pipeline(figma_json=None, requirements_content=None):
-    """
-    Multi-agent pipeline for generating test cases from Figma JSON and requirements content.
-    Returns structured test cases for UI/UX, frontend, and backend testing.
-    """
-    if not figma_json or not isinstance(figma_json, dict):
-        return {"error": "Missing or invalid figma_json input", "input_received": figma_json}
+
+    # 1. Validate Inputs
+    if not isinstance(figma_json, dict) or not figma_json:
+        print("❌ ERROR: Invalid or missing figma_json input")
+        return {
+            "error": "Missing or invalid figma_json input",
+            "input_received": figma_json if figma_json else "No input received"
+        }
     
-    if not requirements_content or not isinstance(requirements_content, dict):
-        return {"error": "Missing or invalid requirements_content input", "input_received": requirements_content}
-    
+    if not isinstance(requirements_content, dict) or not requirements_content:
+        print("❌ ERROR: Invalid or missing requirements_content input")
+        return {
+            "error": "Missing or invalid requirements_content input",
+            "input_received": requirements_content if requirements_content else "No input received"
+        }
+
+    # Log inputs for debugging
+    print("✅ Received figma_json:", json.dumps(figma_json, indent=2))
+    print("✅ Received requirements_content:", json.dumps(requirements_content, indent=2))
+
     graph = StateGraph(PipelineState)
 
-    # Node: Generate UI/UX test cases
+    # 2. Define Processing Nodes
     def uiux_node(state):
-        return {"uiux_test_cases": uiux_pipeline(state["figma_json"], state["requirements_content"])}
+        try:
+            return {"uiux_test_cases": uiux_pipeline(state["figma_json"], state["requirements_content"])}
+        except Exception as e:
+            print("❌ UIUX Node Error:", str(e))
+            return {"uiux_test_cases": [], "error": str(e)}
 
-    # Node: Generate Frontend test cases
     def frontend_node(state):
-        return {"frontend_test_cases": frontend_pipeline(state["figma_json"], state["requirements_content"])}
+        try:
+            return {"frontend_test_cases": frontend_pipeline(state["figma_json"], state["requirements_content"])}
+        except Exception as e:
+            print("❌ Frontend Node Error:", str(e))
+            return {"frontend_test_cases": [], "error": str(e)}
 
-    # Node: Generate Backend test cases
     def backend_node(state):
-        return {"backend_test_cases": backend_pipeline(state["requirements_content"])}
+        try:
+            return {"backend_test_cases": backend_pipeline(state["requirements_content"])}
+        except Exception as e:
+            print("❌ Backend Node Error:", str(e))
+            return {"backend_test_cases": [], "error": str(e)}
 
+    # 3. Add Nodes to Graph
     graph.add_node("UIUX_Testing", uiux_node)
     graph.add_node("Frontend_Testing", frontend_node)
     graph.add_node("Backend_Testing", backend_node)
 
-    # Define execution order (parallel execution)
+    # 4. Define Execution Order
     graph.add_edge(START, "UIUX_Testing")
     graph.add_edge(START, "Frontend_Testing")
     graph.add_edge(START, "Backend_Testing")
-    
+
     graph.add_edge("UIUX_Testing", END)
     graph.add_edge("Frontend_Testing", END)
     graph.add_edge("Backend_Testing", END)
 
-    # Execute the pipeline
+    # 5. Execute Graph & Handle Results
     compiled_graph = graph.compile()
     results = compiled_graph.invoke({
         "figma_json": figma_json,
         "requirements_content": requirements_content
     })
 
-    # Save the test cases to a JSON file
+    # Merge results safely
     test_cases = {
         "uiux_test_cases": results.get("uiux_test_cases", []),
         "frontend_test_cases": results.get("frontend_test_cases", []),
         "backend_test_cases": results.get("backend_test_cases", [])
     }
 
+    # 6. Save Test Cases to JSON File
     file_path = os.path.join(os.getcwd(), "generated_test_cases.json")
     with open(file_path, "w") as f:
         json.dump(test_cases, f, indent=4)
+
+    print("✅ Test cases saved at:", file_path)
 
     return {
         "message": "Test cases generated successfully.",

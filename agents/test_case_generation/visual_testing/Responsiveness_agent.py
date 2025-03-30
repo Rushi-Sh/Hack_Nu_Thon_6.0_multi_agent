@@ -21,17 +21,62 @@ def generate_responsiveness_tests(state):
     prompt = PromptTemplate(
         input_variables=["figma_json", "requirements_content"],
         template=(
-            "Analyze UI design from Figma JSON: {figma_json} and project requirements: {requirements_content}. "
-            "Generate structured test cases to validate UI responsiveness across the following resolutions:\n"
-            "- Mobile (375x667, 414x896, 390x844)\n"
-            "- Tablet (768x1024, 820x1180, 912x1368)\n"
-            "- Desktop (1280x720, 1440x900, 1920x1080)\n"
-            "\nTest cases should cover:\n"
-            "- Proper layout adjustments and scaling\n"
-            "- Grid/Flexbox responsiveness issues\n"
-            "- Text wrapping, truncation, and scaling behavior\n"
-            "- Touch gestures and interactive component scaling\n"
-            "- Visibility of critical UI elements on different screens"
+           """
+           You are an expert in **Responsiveness Testing** for web and mobile applications.
+Analyze the UI design from **Figma JSON** and **project requirements** to generate structured responsiveness test cases.
+
+### **INPUT DATA**
+- **Figma UI Elements**:  
+  {figma_json}
+- **Software Requirements**:  
+  {requirements_content}
+
+### **TASK**
+1. **Generate comprehensive responsiveness test cases** covering:  
+   - **Mobile Resolutions** (375x667, 414x896, 390x844)
+   - **Tablet Resolutions** (768x1024, 820x1180, 912x1368)
+   - **Desktop Resolutions** (1280x720, 1440x900, 1920x1080)
+   - **Layout Adjustments and Scaling**
+   - **Grid/Flexbox Responsiveness**
+   - **Text Wrapping and Truncation**
+   - **Touch Gestures and Interactive Elements**
+   - **Critical UI Element Visibility**  
+
+2. **Each test case must include**:  
+   - **test_id**: A unique identifier (e.g., "RES-001")
+   - **summary**: Short description of what is being tested
+   - **priority**: Importance level (P1, P2, P3)
+   - **tags**: Relevant categories as an array ["Responsive", "Mobile", etc.]
+   - **steps**: An array of test steps, each containing:
+     - **step_number**: The sequence number
+     - **action**: The action to perform
+     - **expected_result**: What should happen if test passes
+
+### **OUTPUT FORMAT (JSON)**
+```json
+{
+  "Responsiveness_Tests": [
+    {
+      "test_id": "RES-001",
+      "summary": "Verify layout adaptation on mobile devices",
+      "priority": "P1",
+      "tags": ["Responsive", "Mobile", "Layout"],
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "Load the application on iPhone 12 resolution (390x844)",
+          "expected_result": null
+        },
+        {
+          "step_number": 2,
+          "action": "Compare layout with design specifications",
+          "expected_result": "UI elements properly stack and resize according to mobile design"
+        }
+      ]
+    }
+  ]
+}
+           """
         ),
     )
 

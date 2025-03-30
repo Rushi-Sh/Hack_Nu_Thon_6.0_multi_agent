@@ -11,7 +11,7 @@ import tiktoken  # For token counting
 # Load environment variables
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-TOKEN_LIMIT = 5500  # Keep a safe margin under 6000 limit
+TOKEN_LIMIT = 2000  # Keep a safe margin under 6000 limit
 
 # Initialize Groq API
 groq_llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
