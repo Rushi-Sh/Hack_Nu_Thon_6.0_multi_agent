@@ -8,6 +8,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from utils import fetch_figma_json, fetch_pdf_text
 from agents.test_generation.test_llm import generate_test_cases
+from agents.test_generation.test_manual import generate_test_cases
 from agents.test_scenerio_script.sel_script import generate_selenium_js,scrape_website
 from agents.figma_image.image_test import extract_ui_elements_from_image,generate_image_test_cases
 
@@ -39,6 +40,26 @@ def process_data():
     # Generate test cases
     try:
         test_cases = generate_test_cases(figma_json, requirements_text)
+        return jsonify({"message": "Test cases generated successfully", "test_cases": test_cases})
+    except Exception as e:
+        return jsonify({"error": f"Test generation failed: {str(e)}"}), 500
+
+@app.route('/manual_input', methods=['POST'])
+def manual_input():
+    """Processes UI description and requirements description to generate test cases."""
+    data = request.json if request.is_json else request.form.to_dict()
+
+    # Extract UI and requirements descriptions
+    ui_desc = data.get("ui_description", "").strip()
+    requirement_desc = data.get("requirement_description", "").strip()
+
+    # Validate inputs
+    if not ui_desc and not requirement_desc:
+        return jsonify({"error": "Provide at least UI description or requirements description"}), 400
+
+    # Generate test cases
+    try:
+        test_cases = generate_test_cases(ui_desc, requirement_desc)
         return jsonify({"message": "Test cases generated successfully", "test_cases": test_cases})
     except Exception as e:
         return jsonify({"error": f"Test generation failed: {str(e)}"}), 500
