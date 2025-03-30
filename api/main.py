@@ -7,7 +7,12 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils import fetch_figma_json, fetch_pdf_text
 from agents.test_generation.test_llm import generate_test_cases
 
+
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({"message": "Hello, Render!"})
 
 @app.route('/process', methods=['POST'])
 def process_data():
