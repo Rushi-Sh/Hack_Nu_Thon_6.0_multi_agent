@@ -10,6 +10,10 @@ from agents.test_scenerio_script.sel_script import generate_selenium_js,scrape_w
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 @app.route('/process', methods=['POST'])
 def process_data():
     """Processes Figma JSON and Requirements to generate test cases."""
