@@ -1,0 +1,926 @@
+{
+  "Layout_agent": [
+    {
+      "id": "15:9",
+      "name": "Landing Page",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "width": 1512.0,
+        "height": 982.0
+      }
+    },
+    {
+      "id": "15:11",
+      "name": "Logo 2 1",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "width": 208.0,
+        "height": 203.0
+      }
+    },
+    {
+      "id": "15:12",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 93.7386703491211,
+        "height": 94.19200134277344
+      }
+    },
+    {
+      "id": "15:13",
+      "name": "917b381b2c",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 93.7386703491211,
+        "height": 94.19200134277344
+      }
+    },
+    {
+      "id": "15:15",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:16",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:17",
+      "name": "8da8a9163e",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:19",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:20",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:21",
+      "name": "568a668947",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:23",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 92.93569946289062,
+        "height": 93.81977081298828
+      }
+    },
+    {
+      "id": "15:25",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 94.8479995727539,
+        "height": 95.27466583251953
+      }
+    },
+    {
+      "id": "15:26",
+      "name": "a8faa5c29f",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 94.8479995727539,
+        "height": 95.27466583251953
+      }
+    },
+    {
+      "id": "15:28",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:29",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:30",
+      "name": "47572bf19f",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:32",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:33",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:34",
+      "name": "ced7d126ce",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:36",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 94.09580993652344,
+        "height": 94.9552230834961
+      }
+    },
+    {
+      "id": "15:38",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 52.69333267211914,
+        "height": 40.599998474121094
+      }
+    },
+    {
+      "id": "15:39",
+      "name": "f9884b0dc2",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 52.69333267211914,
+        "height": 40.599998474121094
+      }
+    },
+    {
+      "id": "15:41",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:42",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:43",
+      "name": "34fa6e392f",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:45",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:46",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:47",
+      "name": "a2e769f00a",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:49",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 52.16564178466797,
+        "height": 40.461761474609375
+      }
+    },
+    {
+      "id": "15:51",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.522666931152344,
+        "height": 29.773332595825195
+      }
+    },
+    {
+      "id": "15:52",
+      "name": "a73b4c870d",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.522666931152344,
+        "height": 29.773332595825195
+      }
+    },
+    {
+      "id": "15:54",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:55",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:56",
+      "name": "6e0c388f44",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:58",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:59",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:60",
+      "name": "037b9726c6",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:62",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 19.883304595947266,
+        "height": 29.27709197998047
+      }
+    },
+    {
+      "id": "15:64",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.522666931152344,
+        "height": 28.149335861206055
+      }
+    },
+    {
+      "id": "15:65",
+      "name": "707d6c7ca1",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.522666931152344,
+        "height": 28.149335861206055
+      }
+    },
+    {
+      "id": "15:67",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:68",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:69",
+      "name": "155aaf7492",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:71",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:72",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:73",
+      "name": "895997d4a7",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:75",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 19.964672088623047,
+        "height": 27.536840438842773
+      }
+    },
+    {
+      "id": "15:77",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 22.7413330078125,
+        "height": 28.149335861206055
+      }
+    },
+    {
+      "id": "15:78",
+      "name": "11f98ca96a",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 22.7413330078125,
+        "height": 28.149335861206055
+      }
+    },
+    {
+      "id": "15:80",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:81",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:82",
+      "name": "3633368ca2",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:84",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:85",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:86",
+      "name": "67811f1342",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:88",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 22.15416717529297,
+        "height": 27.680307388305664
+      }
+    },
+    {
+      "id": "15:90",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.514667510986328,
+        "height": 23.818666458129883
+      }
+    },
+    {
+      "id": "15:91",
+      "name": "9fc15e2a96",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.514667510986328,
+        "height": 23.818666458129883
+      }
+    },
+    {
+      "id": "15:93",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:94",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:95",
+      "name": "78c31571d7",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:97",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:98",
+      "name": "Clip path group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:99",
+      "name": "5a7f7bb477",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 107.08316802978516,
+        "height": 101.52326202392578
+      }
+    },
+    {
+      "id": "15:101",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.02294921875,
+        "height": 23.269195556640625
+      }
+    },
+    {
+      "id": "15:103",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 24.41895866394043,
+        "height": 37.755184173583984
+      }
+    },
+    {
+      "id": "15:104",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 24.41895866394043,
+        "height": 37.755184173583984
+      }
+    },
+    {
+      "id": "15:105",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 24.41895866394043,
+        "height": 37.755184173583984
+      }
+    },
+    {
+      "id": "15:107",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.088176727294922,
+        "height": 23.824514389038086
+      }
+    },
+    {
+      "id": "15:108",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.088176727294922,
+        "height": 23.824514389038086
+      }
+    },
+    {
+      "id": "15:109",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 20.088176727294922,
+        "height": 23.824514389038086
+      }
+    },
+    {
+      "id": "15:111",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 27.764127731323242,
+        "height": 22.47579002380371
+      }
+    },
+    {
+      "id": "15:112",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 27.764127731323242,
+        "height": 22.47579002380371
+      }
+    },
+    {
+      "id": "15:113",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 27.764127731323242,
+        "height": 22.47579002380371
+      }
+    },
+    {
+      "id": "15:115",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.02560806274414,
+        "height": 25.98763084411621
+      }
+    },
+    {
+      "id": "15:116",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.02560806274414,
+        "height": 25.98763084411621
+      }
+    },
+    {
+      "id": "15:117",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 25.02560806274414,
+        "height": 25.98763084411621
+      }
+    },
+    {
+      "id": "15:119",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.244632720947266,
+        "height": 16.582395553588867
+      }
+    },
+    {
+      "id": "15:120",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.244632720947266,
+        "height": 16.582395553588867
+      }
+    },
+    {
+      "id": "15:121",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.244632720947266,
+        "height": 16.582395553588867
+      }
+    },
+    {
+      "id": "15:123",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.591747283935547,
+        "height": 17.90536117553711
+      }
+    },
+    {
+      "id": "15:124",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.591747283935547,
+        "height": 17.90536117553711
+      }
+    },
+    {
+      "id": "15:125",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 21.591747283935547,
+        "height": 17.90536117553711
+      }
+    },
+    {
+      "id": "23:8",
+      "name": "Group",
+      "type": "GROUP",
+      "category": "Layout_agent",
+      "size": {
+        "width": 297.0,
+        "height": 60.0
+      }
+    },
+    {
+      "id": "15:133",
+      "name": "Navifation Bar",
+      "type": "FRAME",
+      "category": "Layout_agent",
+      "size": {
+        "width": 831.0,
+        "height": 63.0
+      }
+    }
+  ],
+  "Usability_agent": [
+    {
+      "id": "15:131",
+      "name": "button",
+      "type": "RECTANGLE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 297.0,
+        "height": 60.0
+      }
+    },
+    {
+      "id": "15:134",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 103.0,
+        "height": 43.0
+      }
+    },
+    {
+      "id": "15:135",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 83.0,
+        "height": 43.0
+      }
+    },
+    {
+      "id": "15:136",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 181.0,
+        "height": 43.0
+      }
+    },
+    {
+      "id": "15:137",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 132.0,
+        "height": 43.0
+      }
+    },
+    {
+      "id": "15:138",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 107.0,
+        "height": 43.0
+      }
+    },
+    {
+      "id": "15:139",
+      "name": "Navigation button",
+      "type": "INSTANCE",
+      "category": "Usability_agent",
+      "size": {
+        "width": 105.0,
+        "height": 43.0
+      }
+    }
+  ]
+}
