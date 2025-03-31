@@ -68,7 +68,7 @@ def manual_input():
 
 @app.route('/generate_test_script', methods=['POST'])
 def generate_test_script():
-    data = request.json
+    data = request.json if request.is_json else request.form.to_dict()
     
     test_cases = data.get("test_cases")
     website_url = data.get("website_url")
@@ -83,10 +83,28 @@ def generate_test_script():
         # Generate Selenium JS script
         selenium_script = generate_selenium_js(test_cases, website_data)
         
-        return jsonify({"message": "Test script generated successfully", "selenium_script": selenium_script})
+        # Prepare the data to send to the external API
+        test_data = {
+            "website_url": website_url,
+            "selenium_script": selenium_script
+        }
+        
+        # Send the Selenium script and website URL to another API to get the test results
+        test_results_url = "https://your-test-results-api-url.com"  # Replace with your actual API URL
+        response = requests.post(test_results_url, json=test_data)
+        
+        if response.status_code == 200:
+            test_results = response.json()  # Assuming the API returns a JSON response with the test results
+            return jsonify({"message": "Test script generated and test results received successfully", 
+                            "selenium_script": selenium_script, 
+                            "test_results": test_results})
+        else:
+            return jsonify({"error": "Failed to get test results from external API", 
+                            "status_code": response.status_code, 
+                            "response": response.text}), 500
+        
     except Exception as e:
-        return jsonify({"error": f"Test script generation failed: {str(e)}"}), 500
-
+        return jsonify({"error": f"Test script generation or API call failed: {str(e)}"}), 500
 
 @app.route('/generate_from_figma', methods=['POST'])
 def generate_from_figma():
@@ -130,6 +148,23 @@ def chatbot():
         return jsonify({"message": "Response generated successfully", "response": bot_response})
     except Exception as e:
         return jsonify({"error": f"Chatbot response failed: {str(e)}"}), 500
+
+
+@app.route('/test_suggestions', methods=['POST'])
+def test_suggestions():
+    """Handle request to generate test case suggestions."""
+    data = request.json if request.is_json else request.form.to_dict()
+    test_case_id = data.get("id")
+
+    if not test_case_id:
+        return jsonify({"error": "Test case ID is required"}), 400
+
+    suggestions = generate_suggestions_for_test_case(test_case_id)
+
+    if "error" in suggestions:
+        return jsonify(suggestions), 400
+
+    return jsonify({"message": "Test case suggestions generated successfully", "suggestions": suggestions["suggestions"]})
 
 
 @app.route('/suggest_updates', methods=['POST'])

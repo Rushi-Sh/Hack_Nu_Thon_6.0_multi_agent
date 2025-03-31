@@ -24,20 +24,20 @@ def generate_test_cases(figma_data, requirements_text):
     template="""
     Generate structured test cases based on the following inputs:
     
-    **Figma Design Data:**  
+    *Figma Design Data:*  
     {figma_data}
     
-    **Requirements Document:**  
+    *Requirements Document:*  
     {requirements_text}
     
-    **Focus Areas:**  
+    *Focus Areas:*  
     - Functional testing  
     - Layout and UI validation  
     - Accessibility checks  
     - Edge cases  
     - Error handling  
 
-    **Return the response in valid JSON format only, structured as follows:**  
+    *Return the response in valid JSON format only, structured as follows:*  
 
     {{
         "summary": "Brief description of the test scenario",
@@ -73,7 +73,7 @@ def generate_test_cases(figma_data, requirements_text):
             content = response.content
             
             # Try to find JSON in the content
-            json_match = re.search(r'```(?:json)?\s*([\s\S]*?)```', content)
+            json_match = re.search(r'(?:json)?\s*([\s\S]*?)', content)
             if json_match:
                 # Extract JSON from code block
                 json_str = json_match.group(1).strip()
@@ -95,8 +95,7 @@ def generate_test_cases(figma_data, requirements_text):
     except Exception as e:
         return {"error": f"Test generation failed: {str(e)}"}
 
-# Example usage
-if __name__ == "__main__":
+if __name__ == "__main__":  # Fixed this line
     example_figma_json = {
         "Layout_agent": "Login page has a centered form with aligned fields.",
         "Usability_agent": "Navigation buttons should be large and accessible."
