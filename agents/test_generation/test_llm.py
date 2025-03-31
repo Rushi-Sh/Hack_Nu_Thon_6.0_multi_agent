@@ -12,36 +12,56 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 # Initialize Groq API
 groq_llm = ChatGroq(model="llama3-8b-8192", api_key=GROQ_API_KEY)
 
+def extract_json_from_response(response_text):
+    """
+    Extracts and returns the pure JSON content from the LLM response.
+    """
+    try:
+        # Try parsing directly as JSON (if LLM returns plain JSON)
+        return json.loads(response_text)
+    except json.JSONDecodeError:
+        pass  # If direct parsing fails, proceed to regex extraction
+
+    # Attempt to extract JSON from within text using regex
+    json_match = re.search(r'\{[\s\S]*\}', response_text)
+    if json_match:
+        json_str = json_match.group(0)  # Extract matched JSON content
+        try:
+            return json.loads(json_str)
+        except json.JSONDecodeError as e:
+            return {"error": f"Extracted JSON is invalid: {str(e)}", "raw_response": response_text}
+
+    # If no valid JSON found, return error
+    return {"error": "Failed to extract valid JSON from response", "raw_response": response_text}
+
 def generate_test_cases(figma_data, requirements_text):
     """
     Generates test cases based on Figma JSON and requirements content.
     """
     if not figma_data and not requirements_text:
         return {"error": "At least one valid input source (figma data or requirements) must be provided"}
-    
+
     prompt = PromptTemplate(
-    input_variables=["figma_data", "requirements_text"],
-    template="""
-    Generate structured test cases based on the following inputs:
+        input_variables=["figma_data", "requirements_text"],
+        template="""
+        Generate structured test cases based on the following inputs:
 
-    *Figma Design Data:*  
-    {figma_data}
-    
-    *Requirements Document:*  
-    {requirements_text}
-    
-    *Focus Areas:*  
-    - Functional testing  
-    - Layout and UI validation  
-    - Accessibility checks  
-    - Edge cases  
-    - Error handling  
+        *Figma Design Data:*  
+        {figma_data}
+        
+        *Requirements Document:*  
+        {requirements_text}
+        
+        *Focus Areas:*  
+        - Functional testing  
+        - Layout and UI validation  
+        - Accessibility checks  
+        - Edge cases  
+        - Error handling  
 
-    *Return the response in the following valid JSON format:*  
+        *Return the response in the following valid JSON format, with no extra text or markdown formatting:*  
 
-    {{
-        "message": "Test cases generated successfully",
-        "test_cases": {{
+        {{
             "message": "Test cases generated successfully",
             "test_cases": {{
                 "priority": "P1",
@@ -87,56 +107,33 @@ def generate_test_cases(figma_data, requirements_text):
                 ]
             }}
         }}
-    }}
+        """
+    )
 
-    Ensure the response is **strictly valid JSON** with no extra text, explanations, or markdown code blocks.
-    """
-)
-
-
-    
     input_data = {
-        "figma_data": str(figma_data) if figma_data else "No Figma data provided",
+        "figma_data": json.dumps(figma_data) if figma_data else "No Figma data provided",
         "requirements_text": requirements_text if requirements_text else "No requirements provided"
     }
-    
+
     try:
         response = (prompt | groq_llm).invoke(input_data)
-        
+
         if response and hasattr(response, "content") and response.content:
-            # Extract JSON from the response
-            content = response.content
-            
-            # Try to find JSON in the content
-            json_match = re.search(r'(?:json)?\s*([\s\S]*?)', content)
-            if json_match:
-                # Extract JSON from code block
-                json_str = json_match.group(1).strip()
-            else:
-                # If no code blocks found, try to find JSON directly
-                json_str = content.strip()
-            
-            try:
-                # Parse the content as JSON and return a Python dictionary
-                json_response = json.loads(json_str)
-                return {
-                    "message": "Test cases generated successfully",
-                    "test_cases": json_response
-                }
-            except json.JSONDecodeError as json_err:
-                return {"error": f"Failed to parse LLM response as JSON: {str(json_err)}", "raw_response": content}
+            extracted_json = extract_json_from_response(response.content)
+            return extracted_json
         else:
             return {"error": "No valid response from AI"}
+    
     except Exception as e:
         return {"error": f"Test generation failed: {str(e)}"}
 
-if __name__ == "__main__":  # Fixed this line
+if __name__ == "__main__":
     example_figma_json = {
         "Layout_agent": "Login page has a centered form with aligned fields.",
         "Usability_agent": "Navigation buttons should be large and accessible."
     }
     example_requirements = "Users must be able to log in with email and password. Errors should be displayed clearly."
-    
+
     test_cases = generate_test_cases(example_figma_json, example_requirements)
     print("\n✅ Generated Test Cases:")
     print(json.dumps(test_cases, indent=2))  # Pretty print the JSON
