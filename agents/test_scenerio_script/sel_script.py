@@ -1,7 +1,8 @@
 import os
 import re
+import requests
 import google.generativeai as genai
-from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 # Load API Key
@@ -13,27 +14,28 @@ genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-pro")
 
 
-# Function to scrape the website
+# Function to scrape website using BeautifulSoup
 def scrape_website(url):
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-        page.goto(url, timeout=15000, wait_until="networkidle")
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()  # Raise an error for HTTP errors
+    except requests.RequestException as e:
+        print(f"⚠️ Failed to fetch website: {e}")
+        return None
 
-        # Extract interactive elements
-        buttons = [btn.inner_text() for btn in page.locator("button").all()]
-        inputs = [inp.get_attribute("name") for inp in page.locator("input").all() if inp.get_attribute("name")]
-        forms = [form.get_attribute("action") for form in page.locator("form").all() if form.get_attribute("action")]
-        links = [a.get_attribute("href") for a in page.locator("a").all() if a.get_attribute("href")]
+    soup = BeautifulSoup(response.text, "html.parser")
 
-        browser.close()
+    buttons = [btn.get_text(strip=True) for btn in soup.find_all("button")]
+    inputs = [inp.get("name") for inp in soup.find_all("input") if inp.get("name")]
+    forms = [form.get("action") for form in soup.find_all("form") if form.get("action")]
+    links = [a.get("href") for a in soup.find_all("a") if a.get("href")]
 
-        return {
-            "buttons": buttons,
-            "input_fields": inputs,
-            "forms": forms,
-            "links": links
-        }
+    return {
+        "buttons": buttons,
+        "input_fields": inputs,
+        "forms": forms,
+        "links": links
+    }
 
 
 # Function to extract JavaScript code using regex
@@ -42,7 +44,7 @@ def extract_js_code(response_text):
     return match.group(1).strip() if match else None
 
 
-# Function to generate Selenium JS script using Gemini API (Without LangChain)
+# Function to generate Selenium JS script using Gemini API
 def generate_selenium_js(test_cases, website_data):
     prompt = f"""
     Generate a Selenium JavaScript script to automate testing for the following test cases:
@@ -61,9 +63,8 @@ def generate_selenium_js(test_cases, website_data):
     Return only the code inside a JavaScript code block (```javascript ... ```).
     """
 
-    # Direct Gemini API Call
     response = model.generate_content(prompt)
-    
+
     if response and response.text:
         selenium_script = extract_js_code(response.text)
     else:
@@ -85,17 +86,19 @@ if __name__ == "__main__":
         {"test_case": "Ensure the logout button is visible after login"}
     ]
 
-    # Scrape website data
+    # Scrape website data using BeautifulSoup
     website_data = scrape_website(website_url)
 
-    # Generate Selenium JS script
-    selenium_script = generate_selenium_js(test_cases, website_data)
+    if website_data:
+        # Generate Selenium JS script
+        selenium_script = generate_selenium_js(test_cases, website_data)
 
-    if selenium_script:
-        # Save the script to a file
-        with open("selenium_test.js", "w") as file:
-            file.write(selenium_script)
+        if selenium_script:
+            with open("selenium_test.js", "w") as file:
+                file.write(selenium_script)
 
-        print("\n✅ Selenium Test Script Generated Successfully! Saved as 'selenium_test.js'")
+            print("\n✅ Selenium Test Script Generated Successfully! Saved as 'selenium_test.js'")
+        else:
+            print("\n❌ Failed to generate a valid Selenium script.")
     else:
-        print("\n❌ Failed to generate a valid Selenium script.")
+        print("\n❌ Failed to scrape website data.")

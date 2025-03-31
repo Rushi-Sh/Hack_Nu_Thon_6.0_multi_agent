@@ -6,7 +6,7 @@ from menu import menu  # Import menu module
 
 # API URLs
 API_URL_PROCESS = "http://127.0.0.1:5000/process"
-API_URL_SCRIPT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_test_script"
+API_URL_SCRIPT = "http://127.0.0.1:5000/generate_test_script"
 API_URL_GENERATE_FROM_FIGMA = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_from_figma"
 API_URL_MANUAL_INPUT = "http://127.0.0.1:5000/manual_input"
 API_URL_CHATBOT = "http://127.0.0.1:5000/chatbot"  # New Chatbot API Route
@@ -145,7 +145,7 @@ elif option == "Generate Test Script":
 
                         # Save to file
                         with open("selenium_test.js", "w") as file:
-                            file.write(response.json()["script"])
+                            file.write(response.json()["selenium_script"])
                         st.success("Test Script Saved to 'selenium_test.js'")
                     else:
                         st.error(f"Error: {response.json().get('error', 'Unknown error')}")

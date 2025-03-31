@@ -83,28 +83,17 @@ def generate_test_script():
         # Generate Selenium JS script
         selenium_script = generate_selenium_js(test_cases, website_data)
         
-        # Prepare the data to send to the external API
-        test_data = {
-            "website_url": website_url,
+        if not selenium_script:
+            return jsonify({"error": "Failed to generate Selenium script"}), 500
+        
+        return jsonify({
+            "message": "Test script generated successfully",
             "selenium_script": selenium_script
-        }
-        
-        # Send the Selenium script and website URL to another API to get the test results
-        test_results_url = "https://your-test-results-api-url.com"  # Replace with your actual API URL
-        response = requests.post(test_results_url, json=test_data)
-        
-        if response.status_code == 200:
-            test_results = response.json()  # Assuming the API returns a JSON response with the test results
-            return jsonify({"message": "Test script generated and test results received successfully", 
-                            "selenium_script": selenium_script, 
-                            "test_results": test_results})
-        else:
-            return jsonify({"error": "Failed to get test results from external API", 
-                            "status_code": response.status_code, 
-                            "response": response.text}), 500
-        
+        })
+    
     except Exception as e:
-        return jsonify({"error": f"Test script generation or API call failed: {str(e)}"}), 500
+        return jsonify({"error": f"Test script generation failed: {str(e)}"}), 500
+
 
 @app.route('/generate_from_figma', methods=['POST'])
 def generate_from_figma():
