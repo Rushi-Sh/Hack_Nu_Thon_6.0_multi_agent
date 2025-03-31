@@ -23,7 +23,7 @@ def generate_test_cases(figma_data, requirements_text):
     input_variables=["figma_data", "requirements_text"],
     template="""
     Generate structured test cases based on the following inputs:
-    
+
     *Figma Design Data:*  
     {figma_data}
     
@@ -37,27 +37,62 @@ def generate_test_cases(figma_data, requirements_text):
     - Edge cases  
     - Error handling  
 
-    *Return the response in valid JSON format only, structured as follows:*  
+    *Return the response in the following valid JSON format:*  
 
     {{
-        "summary": "Brief description of the test scenario",
-        "priority": "P1 or P2 or P3",
-        "tags": ["Tag1", "Tag2"],
-        "test_cases": [
-            {{
-                "step": "Action to be performed",
-                "expected_result": "Expected outcome"
-            }},
-            {{
-                "step": "Next action",
-                "expected_result": "Next expected outcome"
+        "message": "Test cases generated successfully",
+        "test_cases": {{
+            "message": "Test cases generated successfully",
+            "test_cases": {{
+                "priority": "P1",
+                "summary": "Figma Design Data Validation",
+                "tags": [
+                    "Functional testing",
+                    "Layout and UI validation",
+                    "Accessibility checks"
+                ],
+                "test_cases": [
+                    {{
+                        "expected_result": "The data should contain both Layout_agent and Usability_agent",
+                        "step": "Check if Figma design data exists"
+                    }},
+                    {{
+                        "expected_result": "The data should contain 3 FRAME objects with correct IDs, names, and sizes",
+                        "step": "Verify Layout_agent data"
+                    }},
+                    {{
+                        "expected_result": "The data should contain 6 INSTANCE objects with correct IDs, names, and sizes",
+                        "step": "Verify Usability_agent data"
+                    }},
+                    {{
+                        "expected_result": "No duplicate IDs should exist in both Layout_agent and Usability_agent",
+                        "step": "Check for duplicate IDs"
+                    }},
+                    {{
+                        "expected_result": "All data types should be correct (FRAME or INSTANCE)",
+                        "step": "Check for invalid data types"
+                    }},
+                    {{
+                        "expected_result": "All objects should be accessible and have ARIA attributes",
+                        "step": "Check for accessibility"
+                    }},
+                    {{
+                        "expected_result": "Test data with varying sizes and positions",
+                        "step": "Test edge cases"
+                    }},
+                    {{
+                        "expected_result": "Test data with invalid or missing data to ensure proper error handling",
+                        "step": "Test error handling"
+                    }}
+                ]
             }}
-        ]
+        }}
     }}
 
-    Ensure the response is strictly valid JSON with no extra text or explanations.
+    Ensure the response is **strictly valid JSON** with no extra text, explanations, or markdown code blocks.
     """
 )
+
 
     
     input_data = {

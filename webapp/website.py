@@ -5,7 +5,7 @@ import json
 from menu import menu  # Import menu module
 
 # API URLs
-API_URL_PROCESS = "https://hack-nu-thon-6-0-multi-agent.onrender.com/process"
+API_URL_PROCESS = "http://127.0.0.1:5000/process"
 API_URL_SCRIPT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_test_script"
 API_URL_GENERATE_FROM_FIGMA = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_from_figma"
 API_URL_MANUAL_INPUT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/manual_input"
@@ -51,7 +51,7 @@ elif option == "Generate Test Cases":
                         files["requirement_pdf"] = (requirements_pdf.name, requirements_pdf, "application/pdf")
 
                     with st.spinner('Generating test cases...'):
-                        response = requests.post(API_URL_GENERATE_FROM_FIGMA, data=payload, files=files)
+                        response = requests.post(API_URL_PROCESS, data=payload, files=files)
 
                     if response.status_code == 200:
                         st.success("Test Cases Generated Successfully!")
