@@ -26,5 +26,8 @@ jobs:
       - name: Run UI Tests (Selenium)
         run: python agents/test_scenerio_script/sel_script.py
 
+      - name: Install Playwright Browsers
+        run: playwright install --with-deps
+
       - name: Run API Tests
         run: python agents/website_extraction/website_agent.py
