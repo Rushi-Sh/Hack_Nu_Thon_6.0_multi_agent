@@ -5,9 +5,9 @@ import json
 from menu import menu  # Import menu module
 
 # API URLs
-API_URL_PROCESS = "http://127.0.0.1:5000/process"
-API_URL_GENERATE_FROM_FIGMA = "http://127.0.0.1:5000/generate_from_figma"
-API_URL_MANUAL_INPUT = "http://127.0.0.1:5000/manual_input"
+API_URL_PROCESS = "https://hack-nu-thon-6-0-multi-agent.onrender.com/process"
+API_URL_GENERATE_FROM_FIGMA = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_from_figma"
+API_URL_MANUAL_INPUT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/manual_input"
 API_URL_CHATBOT = "http://127.0.0.1:5000/chatbot"  # New Chatbot API Route
 
 # Display menu and get selected option
@@ -36,17 +36,23 @@ elif option == "Generate Test Cases":
 
     if input_method == "Figma URL":
         figma_url = st.text_input("Enter Figma File URL", placeholder="https://www.figma.com/file/xyz123/design")
-        requirements_text = st.text_area("Enter Requirements Text")
+        requirements_pdf = st.file_uploader("Upload Requirements PDF", type=["pdf"])
         
         if st.button("Generate Test Cases"):
-            if figma_url or requirements_text:
-                payload = {"figma_url": figma_url or None, "requirements_text": requirements_text or None}
+            if figma_url or requirements_pdf:
                 try:
-                    response = requests.post(API_URL_PROCESS, json=payload)
+                    files = {}
+                    payload = {"figma_url": figma_url or None}
+                    
+                    if requirements_pdf:
+                        files["requirement_pdf"] = (requirements_pdf.name, requirements_pdf, "application/pdf")
+                    
+                    response = requests.post(API_URL_GENERATE_FROM_FIGMA, data=payload, files=files)
+                    
                     if response.status_code == 200:
                         st.success("Test Cases Generated Successfully!")
                         st.json(response.json())
-
+                        
                         with open("test_cases.json", "w") as file:
                             json.dump(response.json(), file)
                         st.success("Test Cases Saved to 'test_cases.json'")
@@ -55,7 +61,8 @@ elif option == "Generate Test Cases":
                 except requests.exceptions.RequestException as e:
                     st.error(f"Error: Unable to connect to API. {str(e)}")
             else:
-                st.warning("Please provide either a Figma URL or requirements text")
+                st.warning("Please provide either a Figma URL or upload a requirements PDF")
+
     
     elif input_method == "Figma Image Upload":
         figma_image = st.file_uploader("Upload Figma Image", type=["png", "jpg", "jpeg"])

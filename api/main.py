@@ -21,7 +21,7 @@ def hello_world():
 
 @app.route('/process', methods=['POST'])
 def process_data():
-    """Processes Figma JSON and Requirements to generate test cases."""
+
     data = request.json if request.is_json else request.form.to_dict()
 
     # Extract Figma JSON
@@ -47,7 +47,7 @@ def process_data():
 
 @app.route('/manual_input', methods=['POST'])
 def manual_input():
-    """Processes UI description and requirements description to generate test cases."""
+
     data = request.json if request.is_json else request.form.to_dict()
 
     # Extract UI and requirements descriptions
@@ -90,7 +90,7 @@ def generate_test_script():
 
 @app.route('/generate_from_figma', methods=['POST'])
 def generate_from_figma():
-    """Processes Figma image and requirements PDF to generate test cases."""
+
     if 'figma_image' not in request.files:
         return jsonify({"error": "Figma image is required."}), 400
     

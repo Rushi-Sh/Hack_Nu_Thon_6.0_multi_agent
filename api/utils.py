@@ -5,7 +5,7 @@ import fitz  # PyMuPDF for PDF text extraction
 # Add the project root directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from agents.figma_extraction.figma_agent import fetch_figma_uiux_json
-from agents.srs_extraction.srs_agent import summarize_text
+from agents.srs_extraction.srs_agent import extract_requirements
 from agents.website_extraction.website_agent import extract_elements_for_selenium
 
 def fetch_figma_json(figma_url):
@@ -35,7 +35,7 @@ def fetch_pdf_text(pdf_bytes):
         if not pdf_text.strip():
             return {"error": "No text extracted from PDF"}  # Return structured error
 
-        summary = summarize_text(pdf_text)  
+        summary = extract_requirements(pdf_text)  
         return summary  # Return full summary object including potential errors
 
     except Exception as e:

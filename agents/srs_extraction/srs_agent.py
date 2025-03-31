@@ -34,63 +34,90 @@ def split_text(text, max_tokens=2000):
         chunks.append(" ".join(chunk))
     return chunks
 
-# Summarize document
-def summarize_text(pdf_text):
+# Extract structured requirements
+def extract_requirements(pdf_text):
     if not pdf_text.strip():
         return "No text found."
     
     prompt = PromptTemplate(
-    input_variables=["figma_data", "requirements_text"],
-    template="""
-    Generate a comprehensive and **detailed set of test cases** in **strict JSON format** based on the following inputs:
+        input_variables=["requirements_text"],
+        template="""
+        Extract and categorize all key requirements from the following Software Requirements Document (SRS):
 
-    **Figma Design Data:**
-    {figma_data}
+        **Requirements Document:**
+        {requirements_text}
 
-    **Requirements Document:**
-    {requirements_text}
+        **Categories to extract:**
+        - **Functional Requirements** (core system behavior and features)
+        - **Non-Functional Requirements** (performance, security, usability, reliability, scalability)
+        - **Domain-Specific Requirements** (industry-specific rules, standards, compliance)
+        - **Business Logic** (decision-making rules, calculations, workflows)
+        - **User Interface (UI/UX) Requirements** (layout, navigation, accessibility)
+        - **Integration Requirements** (third-party APIs, databases, external services)
+        - **Security & Compliance Requirements** (authentication, encryption, GDPR, HIPAA, etc.)
+        - **Performance & Load Requirements** (response times, scalability, data handling)
+        - **Error Handling & Edge Cases** (validation, incorrect input handling)
+        - **Cross-Platform & Cross-Browser Requirements** (desktop, mobile, web, different OS)
 
-    **Test cases should cover:**
-    - **Functional Testing** (cover all core functionalities)
-    - **UI/UX Testing** (layout, responsiveness, and consistency)
-    - **Accessibility Checks** (screen readers, keyboard navigation, color contrast)
-    - **Performance Testing** (loading times, heavy data handling)
-    - **Edge Cases & Error Handling** (unexpected inputs, extreme values)
-    - **Security Testing** (login, authentication, data protection)
-    - **Cross-Browser & Cross-Device Testing** (Chrome, Safari, Firefox, mobile, tablet)
-
-    **JSON Format for Output:**
-    ```json
-    {
-      "test_cases": [
-        {
-          "summary": "Short description of the test case",
-          "priority": "P1/P2/P3",
-          "tags": ["Relevant", "Tags"],
-          "test_steps": [
-            {
-              "step": "Describe the test step",
-              "expected_result": "Describe the expected outcome"
-            }
+        **Return the extracted requirements in strict JSON format:**
+        ```json
+        {{
+          "functional_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "non_functional_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "domain_specific_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "business_logic": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "ui_ux_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "integration_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "security_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "performance_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "error_handling_requirements": [
+            "Requirement 1",
+            "Requirement 2"
+          ],
+          "cross_platform_requirements": [
+            "Requirement 1",
+            "Requirement 2"
           ]
-        }
-      ]
-    }
-    ```
+        }}
+        ```
+        **Ensure the JSON is properly formatted with no additional text, explanations, or markdown.**
+        """
+    )
 
-    **Return 40 diverse test cases** following this format.  
-    **Ensure the JSON is properly formatted without extra explanations or markdown.**
-    """
-)
-
-
+    structured_requirements = [
+        (prompt | groq_llm).invoke({"requirements_text": chunk}).content.strip()
+        for chunk in split_text(pdf_text)
+    ]
     
-    summaries = [(prompt | groq_llm).invoke({"chunk": chunk}).content.strip() for chunk in split_text(pdf_text)]
-    return "\n".join(summaries)
+    return "\n".join(structured_requirements)
 
 # Main execution
 if __name__ == "__main__":
-    with open("SRS[1].pdf", "rb") as f:
+    with open("SRS.pdf", "rb") as f:
         pdf_text = extract_text(f.read())
     
-    print("\n✅ Summary:\n", summarize_text(pdf_text))
+    print("\n✅ Extracted Requirements:\n", extract_requirements(pdf_text))
