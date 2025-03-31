@@ -1,0 +1,30 @@
+name: Run Automated Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Test Case Generation
+        run: python test_generation/test_llm.py
+
+      - name: Run UI Tests (Selenium)
+        run: python test_scenerio_script/sel_script.py
+
+      - name: Run API Tests
+        run: python website_extraction/website_agent.py
