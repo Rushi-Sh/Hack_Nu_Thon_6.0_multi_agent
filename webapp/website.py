@@ -8,7 +8,7 @@ from menu import menu  # Import menu module
 API_URL_PROCESS = "http://127.0.0.1:5000/process"
 API_URL_SCRIPT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_test_script"
 API_URL_GENERATE_FROM_FIGMA = "https://hack-nu-thon-6-0-multi-agent.onrender.com/generate_from_figma"
-API_URL_MANUAL_INPUT = "https://hack-nu-thon-6-0-multi-agent.onrender.com/manual_input"
+API_URL_MANUAL_INPUT = "http://127.0.0.1:5000/manual_input"
 API_URL_CHATBOT = "http://127.0.0.1:5000/chatbot"  # New Chatbot API Route
 
 # Display menu and get selected option
