@@ -21,7 +21,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Test Case Generation
-        run: python test_generation/test_llm.py
+        run: python agents/test_generation/test_llm.py
 
       - name: Run UI Tests (Selenium)
         run: python test_scenerio_script/sel_script.py
