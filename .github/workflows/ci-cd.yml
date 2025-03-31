@@ -24,7 +24,7 @@ jobs:
         run: python agents/test_generation/test_llm.py
 
       - name: Run UI Tests (Selenium)
-        run: python test_scenerio_script/sel_script.py
+        run: python agents/test_scenerio_script/sel_script.py
 
       - name: Run API Tests
-        run: python website_extraction/website_agent.py
+        run: python agents/website_extraction/website_agent.py
